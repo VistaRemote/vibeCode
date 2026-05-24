@@ -1,0 +1,12 @@
+---
+description: AI Worker 仓库约定
+globs: "**/*.{ts,tsx,js,mjs}"
+alwaysApply: false
+---
+
+# AI Worker (`ai`)
+
+- 仅消费 BullMQ / 内网任务；**不** 对外公网 API。
+- LLM：OpenAI-compatible（`AI_BASE_URL`，本地 **Ollama**）；密钥不进 `server`。
+- 端侧实时监控在 `desktop`；本仓做摘要、基线 ML、效率报告、`behavior.cloud_infer`。
+- 回调 `server` 内部 API（HMAC）；结果类型在 `@vistaremote/shared`。

@@ -1,0 +1,15 @@
+---
+description: VistaRemote 核心约定（Spec、套餐、MySQL、多模型 AI）
+alwaysApply: true
+---
+
+# VistaRemote 核心约定
+
+- **架构**：独立 Git 仓库；契约变更 **先 `@vistaremote/shared`，再 `server`，再各客户端**。
+- **数据库**：仅 **MySQL 8** + TypeORM，不用 PostgreSQL。
+- **实时**：WebRTC；信令在 `server`；**LLM/批量 ML 仅在 `ai`**；**端侧实时监控在 `desktop`（edge-ai）**。
+- **AI**：多模型（小模型/CV/时序在端侧，LLM 在 ai Worker）；见 `spec/ai-behavior-architecture-spec.md`（Meta-Repo）或本仓 `spec/`。
+- **Node.js**：**≥ 22**；`.nvmrc` 为 **22.12 LTS**。
+- **格式**：**Biome**（`pnpm lint` / `pnpm lint:fix`），勿引入 ESLint+Prettier 双栈。
+- **测试**：**Rstest**（`pnpm test`）；提交前 Husky 跑 staged lint + test。
+- **提交**：Conventional Commits；跨库功能使用**相同分支名**。

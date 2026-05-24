@@ -1,0 +1,91 @@
+# 实现状态矩阵（与 Spec 对照）
+
+| Metadata | Value |
+| :--- | :--- |
+| **文档 ID** | `SPEC-STATUS-001` |
+| **版本** | 1.0.0 |
+| **更新** | 2026-05-24 |
+| **说明** | 新功能开发前请查此表；✅ 可开发 · 🟡 部分 · ⬜ 未开始 · 🔗 依赖项 |
+
+---
+
+## 1. 基础架构就绪度（总结）
+
+| 维度 | 状态 | 说明 |
+| :--- | :--- | :--- |
+| **Spec 体系** | ✅ | L0/L1 齐全；SDD 见 [spec-driven-development-spec.md](./spec-driven-development-spec.md) |
+| **shared 契约** | ✅ | 信令、控制、WebRTC、auth、billing、telemetry、ai jobs |
+| **本地开发体验** | ✅ | `dev.sh`、`pnpm env:*`、单仓 `pnpm setup` |
+| **CI/CD 规范** | ✅ | Spec + 各仓 workflow 模板 |
+| **Server 业务持久化** | 🟡 | 内存 store；TypeORM/MySQL 为 P1 |
+| **端到端远程闭环** | 🟡 | 信令/策略/播放骨架在；配对 API（码/链/QR）🟡；JWT P1 |
+| **Agent 三包体** | 🟡 | Spec+契约+构建脚本；electron-builder 分包 P1 |
+| **Admin 完整 CRUD** | 🟡 | 页面骨架 + Admin API 部分 |
+| **支付回调** | ⬜ | 订单内存 + simulate-paid；微信/支付宝 P1 |
+
+**结论**：适合在 **既有契约与模块边界内** 做功能开发；涉及「全量用户 MySQL」「真实支付」「生产 JWT」须先认领 P1 基建项或拆子任务。
+
+---
+
+## 2. 仓库级状态
+
+| 仓库 | 状态 | 已具备 | 待办（P1+） |
+| :--- | :--- | :--- | :--- |
+| **shared** | ✅ | 导出、单测、发布流程 | 更多 Admin DTO |
+| **server** | 🟡 | 信令 WSS、SSE、ICE、SFU 调度、计费/权益、行为内存 | TypeORM、JWT 守卫、BullMQ 实连、审计表 |
+| **web/client** | 🟡 | Rsbuild、信令/SSE 客户端、WebRTC 播放、FeatureGate | 配对/会话 UI、登录 |
+| **web/admin** | 🟡 | 用户/订单/权限页骨架 | ProLayout 全模块、真实 API 鉴权 |
+| **desktop** | 🟡 | Electron、edge-ai、webrtc publisher、性能骨架 | MediaStream 实装、Agent Service、GPU 构建 |
+| **mobile** | 🟡 | RN 骨架、peer-session、env | webrtc 完整 UI、配对 |
+| **ai** | 🟡 | Worker、LLM client、python-worker 占位 | LangChain、BullMQ、RAG |
+| **deploy** | ✅ | compose、mediasoup-controller、coturn profile | 生产 compose |
+| **docs** | ✅ | Rspress 中英、架构/工程/指南 | 用户向章节扩充 |
+
+---
+
+## 3. 领域功能矩阵
+
+| 领域 | Spec | 实现 | 可开发任务示例 |
+| :--- | :--- | :--- | :--- |
+| 配对接入 | agent-distribution | 🟡 | Server 内存配对；Web `/pairing`；Desktop 展示 P1 |
+| Desktop 性能 A（先上线） | desktop-performance §A | 🟡 | MediaStream、GPU 构建、recording、Agent 壳 |
+| Desktop 性能 B（Rust） | desktop-performance §R1–R6 | ⬜ | 按 ROI；`desktop/native/` 占位；需测量后立项 |
+| 全项目性能路线图 | performance-roadmap | ✅ | Spec only；不对外 docs |
+| P2P 1:1 信令 | webrtc、messaging | 🟡 | 完善 join/auth、ICE 合并 |
+| SFU 多观众 | webrtc、commercial | 🟡 | mediasoup-client 接线、权益已接 |
+| 远程控制 DataChannel | shared control、desktop | 🟡 | Agent 注入控制通道 |
+| 套餐/试用/权益 | commercial、billing | 🟡 | 接 TypeORM、支付 webhook |
+| RBAC/ABAC | authorization | 🟡 | JWT 守卫、WSS ticket |
+| 录制回放 | recording | 🟡 | Spec+desktop 缓冲/upload 骨架；server API P1 |
+| SFU 服务端录制 | recording.sfu_server | ⬜ | PlainTransport+FFmpeg P2 |
+| AI 摘要 | ai-platform | 🟡 | summarize processor |
+| 企业安全遥测 | enterprise-security | 🟡 | 规则入库、Admin 列表 |
+| 订单支付 | billing-commerce | 🟡 | 微信/支付宝适配器 |
+
+---
+
+## 4. 建议迭代顺序（维护者）
+
+与 [spec/README.md](./README.md) 一致，并细化：
+
+| 阶段 | 目标 | 解锁 |
+| :--- | :--- | :--- |
+| **MVP-A** | MySQL User/Session + JWT 登录 | 真实配对与鉴权 |
+| **MVP-B** | Client 配对页 + 1:1 视频 | US-01 端到端 |
+| **MVP-C** | BullMQ + ai summarize | US-07 部分 |
+| **MVP-D** | 录制 MinIO | Pro 套餐 |
+| **ENT-1** | 遥测入库 + 规则告警 | Enterprise |
+
+---
+
+## 5. 更新义务
+
+合并影响用户可见行为或 FR 的 PR 时，作者 **应** 更新本表相关行。
+
+---
+
+## 6. RFC / Changelog
+
+| 日期 | 版本 | 变更 |
+| :--- | :--- | :--- |
+| 2026-05-24 | 1.0.0 | 初版矩阵 |

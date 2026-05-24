@@ -1,0 +1,33 @@
+name: Feature Request
+description: Suggest an idea or Spec change
+title: "[feat]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem / use case
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+    validations:
+      required: true
+  - type: dropdown
+    id: tier
+    attributes:
+      label: Plan tier (if applicable)
+      options:
+        - free
+        - pro
+        - enterprise
+        - n/a
+  - type: checkboxes
+    id: spec
+    attributes:
+      label: Spec
+      options:
+        - label: Willing to update spec/ docs in the same PR cycle
+          required: false

@@ -1,0 +1,53 @@
+VistaRemote Open Source License
+Version 1.0, May 2026
+
+Copyright (c) 2026 VistaRemote contributors
+
+TERMS
+
+1. Definitions
+
+   "Software" means the VistaRemote source code and documentation in this
+   repository and related public sub-repositories under the same license.
+
+   "Personal Use" means use by an individual for personal learning, research,
+   or hobby purposes, where the use is not intended for or directed toward
+   commercial advantage or monetary compensation.
+
+   "Commercial Use" means any use of the Software in or for a business,
+   organization, revenue-generating activity, or product or service offered
+   to third parties for a fee or other consideration, including internal
+   business operations, managed hosting for clients, SaaS, and embedding in
+   commercial products.
+
+2. Grant for Personal Use
+
+   Permission is hereby granted, free of charge, to any person obtaining a
+   copy of the Software, to use, copy, modify, and distribute the Software
+   for Personal Use only, subject to the conditions in Section 4.
+
+3. Commercial Use
+
+   Commercial Use is NOT permitted under this license. You must obtain a
+   separate written commercial license from the copyright holder before any
+   Commercial Use.
+
+4. Conditions
+
+   - Redistributions must retain this license and copyright notice.
+   - Modified versions must state significant changes.
+   - The Software is provided "AS IS", without warranty of any kind.
+
+5. No Trademark License
+
+   This license does not grant permission to use the trade names, trademarks,
+   or logos of VistaRemote.
+
+6. Third-Party Components
+
+   The Software may include third-party components under their own licenses.
+   Model weights (e.g. Llama, Qwen) are governed by their upstream licenses.
+   Proprietary fine-tuned model bundles are not part of this open-source
+   grant; see spec/ai-finetune-spec.md.
+
+For commercial licensing: contact the project maintainers (see README).

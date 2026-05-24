@@ -1,0 +1,28 @@
+# Meta-Repo：不跟踪已克隆的子仓库目录（各自独立 Git）
+/server/
+/desktop/
+/mobile/
+/web/
+/docs/
+/shared/
+/deploy/
+/ai/
+/ai-finetune/
+
+# Meta-Repo 本地 tooling
+node_modules/
+.pnpm-store/
+.pnpm-debug.log*
+
+# 环境
+.env
+.env.local
+!.env.example
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+*.log
+
+# 可选本地数据
+*.local

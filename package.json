@@ -1,0 +1,29 @@
+{
+  "name": "vistaremote-meta",
+  "private": true,
+  "description": "VistaRemote Meta-Repo tooling (Biome, shared configs)",
+  "scripts": {
+    "check": "biome check .",
+    "check:fix": "biome check --write .",
+    "format": "biome format --write .",
+    "format:docs": "biome format --write spec CONTRIBUTING.md AGENTS.md readme.md readme.zh-CN.md .github",
+    "prepare": "node -e \"try{require('husky')}catch(e){}\"",
+    "env:local": "node tooling/scripts/apply-env.mjs local",
+    "env:dev": "node tooling/scripts/apply-env.mjs dev",
+    "env:sit": "node tooling/scripts/apply-env.mjs sit",
+    "env:uat": "node tooling/scripts/apply-env.mjs uat",
+    "dev:up": "node tooling/scripts/dev-up.mjs",
+    "dev:up:ai": "node tooling/scripts/dev-up.mjs --with-ai",
+    "setup:repo": "node tooling/scripts/setup-single-repo.mjs"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.0.6",
+    "@commitlint/cli": "^19.8.0",
+    "@commitlint/config-conventional": "^19.8.0",
+    "husky": "^9.1.7"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "packageManager": "pnpm@9.15.0"
+}

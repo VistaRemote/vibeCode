@@ -1,0 +1,55 @@
+# VistaRemote Node/TypeScript 子仓库标准 .gitignore
+# 复制到各子仓根目录；由 tooling/scripts/setup-gitignore.mjs 同步（可选）
+
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build outputs
+dist/
+dist-*/
+build/
+out/
+.rslib/
+.rsbuild/
+.rspress/
+doc_build/
+
+# Environment & secrets
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# Test & coverage
+coverage/
+.nyc_output/
+.rstest-temp/
+*.lcov
+
+# Logs & OS
+*.log
+npm-debug.log*
+pnpm-debug.log*
+.DS_Store
+Thumbs.db
+
+# TypeScript
+*.tsbuildinfo
+
+# Cache
+.turbo/
+.cache/
+.parcel-cache/
+.eslintcache
+
+# IDE（保留团队共享的 .vscode 推荐配置）
+.idea/
+*.swp
+*.swo
+*~
+
+# Optional: 本地录制/调试
+*.local.mp4
+*.local.webm
+recordings-local/

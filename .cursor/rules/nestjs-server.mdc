@@ -1,0 +1,13 @@
+---
+description: NestJS server 模块约定
+globs: "server/**/*.{ts,tsx}"
+alwaysApply: false
+---
+
+# NestJS (server)
+
+- 分层：Controller → Service → Repository；Controller 不直接写复杂 SQL。
+- Entity 仅 TypeORM；生产禁止 `synchronize: true`，只用 migrations。
+- DTO / WS Payload 类型来自 `@vistaremote/shared`。
+- 套餐守卫：`PlanGuard` 校验 free/pro/pro/enterprise。
+- 不在 server 进程内调用 LLM；AI 任务投递 BullMQ 给 `ai` 服务。

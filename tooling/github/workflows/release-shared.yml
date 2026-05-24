@@ -1,0 +1,76 @@
+# Template → shared/.github/workflows/release.yml
+name: Release @vistaremote/shared
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'SemVer to publish (must match package.json)'
+        required: true
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  publish:
+    name: Build & publish
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.ver.outputs.version }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Resolve version
+        id: ver
+        run: |
+          if [ -n "${{ github.event.inputs.version }}" ]; then
+            echo "version=${{ github.event.inputs.version }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "version=${GITHUB_REF#refs/tags/v}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.12'
+          cache: pnpm
+          registry-url: https://npm.pkg.github.com
+          scope: '@vistaremote'
+
+      - name: Align package version
+        run: npm pkg set version="${{ steps.ver.outputs.version }}"
+
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm lint
+      - run: pnpm test
+      - run: pnpm build
+
+      - name: Publish to GitHub Packages
+        run: pnpm publish --no-git-checks --access restricted
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  notify-consumers:
+    name: Notify downstream repos
+    needs: publish
+    runs-on: ubuntu-latest
+    if: success() && vars.ENABLE_SHARED_DISPATCH != 'false'
+    strategy:
+      fail-fast: false
+      matrix:
+        repo: [server, web, ai, desktop, mobile]
+    steps:
+      - name: repository_dispatch
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.VISTAREMOTE_CI_PAT }}
+          repository: VistaRemote/${{ matrix.repo }}
+          event-type: shared-published
+          client-payload: '{"version":"${{ needs.publish.outputs.version }}"}'

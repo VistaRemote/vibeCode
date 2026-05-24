@@ -1,0 +1,17 @@
+---
+description: VistaRemote 核心约定（Meta-Repo、Spec、套餐、MySQL）
+alwaysApply: true
+---
+
+# VistaRemote 核心约定
+
+- **架构**：Flat Meta-Repo + 多独立 Git 仓库；禁止 submodule。契约变更 **先 `shared`，再 `server`，再各客户端**。
+- **数据库**：仅 **MySQL 8** + TypeORM，不用 PostgreSQL。
+- **实时**：WebRTC P2P（1:1）/ SFU（1:N）；信令在 server，AI 在独立 `ai` 仓库。
+- **前端**：Rsbuild + Ant Design + Sass（RN 用 Metro + antd-mobile）。
+- **AI**：多模型；端侧 `desktop/edge-ai`，LLM 在 `ai`；见 `spec/ai-behavior-architecture-spec.md`。
+- **实现前**：阅读 `spec/implementation-status.md`、`spec/spec-driven-development-spec.md`、`spec/system-overview.md` 与对应模块 Spec；未写入 Spec 的行为视为 Out of Scope。
+- **子仓库 IDE**：各子目录含 `.editorconfig`、`.vscode/`、`.cursor/rules/`、`AGENTS.md`（`node tooling/scripts/setup-ide-config.mjs` 同步）。
+- **Node.js**：**≥ 22**（开发/CI/生产统一；`.nvmrc` 为 **22.12 LTS**）。
+- **格式与检查**：使用 **Biome**（`pnpm check` / `pnpm check:fix`），勿引入 ESLint+Prettier 双栈。
+- **提交**：Conventional Commits，跨库功能使用**相同分支名**（如 `feat/webrtc-sfu`）。

@@ -1,0 +1,36 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.4.15/schema.json",
+  "extends": ["./biome.json"],
+  "files": {
+    "includes": [
+      "**",
+      "!**/*.md",
+      "!**/node_modules",
+      "!**/dist",
+      "!**/coverage",
+      "!**/migrations/**/*.js"
+    ]
+  },
+  "linter": {
+    "rules": {
+      "style": {
+        "useImportType": "error"
+      },
+      "correctness": {
+        "noUnusedFunctionParameters": "warn"
+      }
+    }
+  },
+  "overrides": [
+    {
+      "includes": ["**/*.spec.ts", "**/*.e2e-spec.ts", "test/**"],
+      "linter": {
+        "rules": {
+          "suspicious": {
+            "noExplicitAny": "off"
+          }
+        }
+      }
+    }
+  ]
+}

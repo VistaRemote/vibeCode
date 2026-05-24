@@ -1,0 +1,7 @@
+# Default reviewers for Meta-Repo (adjust teams/users when org is ready)
+* @VistaRemote/maintainers
+
+/spec/ @VistaRemote/maintainers
+/tooling/ @VistaRemote/maintainers
+/.cursor/ @VistaRemote/maintainers
+/docs/ @VistaRemote/maintainers

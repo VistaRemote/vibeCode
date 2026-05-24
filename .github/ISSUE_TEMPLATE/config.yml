@@ -1,0 +1,8 @@
+blank_issues: false
+contact_links:
+  - name: Documentation
+    url: https://github.com/VistaRemote/vista-remote/tree/main/docs
+    about: Rspress docs �?see docs/README.md for local preview
+  - name: Security
+    url: https://github.com/VistaRemote/vista-remote/blob/main/SECURITY.md
+    about: Report vulnerabilities privately

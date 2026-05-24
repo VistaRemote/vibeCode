@@ -1,0 +1,11 @@
+---
+description: shared 协议层（SSOT）约定
+globs: "**/*.{ts,tsx}"
+alwaysApply: false
+---
+
+# @vistaremote/shared
+
+- **仅** 纯 TS：类型、常量、Zod schema；**禁止** Node/Electron/RN 运行时依赖。
+- 构建：Rslib（ESM+CJS）；变更后各依赖仓需 `pnpm build`（shared）并刷新 link。
+- 目录：`telemetry/`、`ai/`、`billing/`、`constants/` 等；跨端契约只在此定义。

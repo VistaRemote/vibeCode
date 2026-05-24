@@ -1,0 +1,11 @@
+---
+description: Rspress 文档站约定
+globs: "**/*.{md,mdx,ts,tsx}"
+alwaysApply: false
+---
+
+# Docs (Rspress)
+
+- 内容：`docs/zh/`、`docs/en/`；与 Meta-Repo `spec/` 保持术语一致。
+- 构建：Rspress 2；`pnpm dev` / `pnpm build`。
+- MD/MDX 格式化：Meta 根 `pnpm format:docs` 或子仓 Biome（若启用）。

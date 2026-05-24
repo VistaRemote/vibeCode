@@ -1,0 +1,94 @@
+# Template → consumer .github/workflows/sync-shared.yml
+name: Sync @vistaremote/shared
+
+on:
+  repository_dispatch:
+    types: [shared-published]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: '@vistaremote/shared SemVer (e.g. 0.2.0)'
+        required: true
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  bump:
+    name: Bump shared & open PR
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Resolve version
+        id: ver
+        run: |
+          if [ -n "${{ github.event.inputs.version }}" ]; then
+            V="${{ github.event.inputs.version }}"
+          else
+            V="${{ github.event.client_payload.version }}"
+          fi
+          echo "version=${V#v}" >> "$GITHUB_OUTPUT"
+
+      - name: Write .npmrc for GitHub Packages
+        run: |
+          cat > .npmrc <<'EOF'
+          @vistaremote:registry=https://npm.pkg.github.com
+          //npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}
+          EOF
+
+      - name: Pin @vistaremote/shared
+        run: |
+          node <<'SCRIPT'
+          const fs = require('fs');
+          const path = require('path');
+          const version = process.env.SHARED_VERSION;
+          const repo = process.env.REPO_NAME;
+          const files =
+            repo === 'web'
+              ? ['apps/client/package.json', 'apps/admin/package.json']
+              : ['package.json'];
+          const pkgName = '@vistaremote/shared';
+          for (const f of files) {
+            const p = path.join(process.cwd(), f);
+            if (!fs.existsSync(p)) continue;
+            const j = JSON.parse(fs.readFileSync(p, 'utf8'));
+            if (!j.dependencies?.[pkgName]) continue;
+            j.dependencies[pkgName] = '^' + version;
+            fs.writeFileSync(p, JSON.stringify(j, null, 2) + '\n');
+            console.log('pinned', f, '→', '^' + version);
+          }
+          SCRIPT
+        env:
+          SHARED_VERSION: ${{ steps.ver.outputs.version }}
+          REPO_NAME: ${{ github.event.repository.name }}
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.12'
+          cache: pnpm
+          registry-url: https://npm.pkg.github.com
+          scope: '@vistaremote'
+
+      - name: Install & verify
+        run: pnpm install && pnpm lint && pnpm test && pnpm build
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: chore/bump-shared-${{ steps.ver.outputs.version }}
+          title: 'chore(deps): bump @vistaremote/shared to ${{ steps.ver.outputs.version }}'
+          body: |
+            Automated bump after [@vistaremote/shared](https://github.com/VistaRemote/shared) release **${{ steps.ver.outputs.version }}**.
+
+            - [ ] CI green
+            - [ ] Smoke test in Meta-Repo layout if needed
+          commit-message: 'chore(deps): bump @vistaremote/shared to ${{ steps.ver.outputs.version }}'
