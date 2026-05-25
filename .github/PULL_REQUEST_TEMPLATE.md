@@ -38,6 +38,9 @@
 - [] `biome check` / `pnpm lint` 通过
 - [] 构建通过（如适用）
 - [] 已自测（简述步骤）
+- [] 未使用禁止栈（Redux、Tailwind、Controller 内 SQL）
+- [] 已对照 [plan/implementation-plan.md](plan/implementation-plan.md)（Meta 迭代 PR）
+- [] AI Review：使用 [prompts/](prompts/)（**人工 Approve 仍必须**）
 
 ## Related issues
 

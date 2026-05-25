@@ -12,9 +12,16 @@
 | 文档 | 说明 |
 | :--- | :--- |
 | [spec-driven-development-spec.md](./spec-driven-development-spec.md) | SDD 工作流、FR/US ID、PR 义务 |
+| [release-planning-spec.md](./release-planning-spec.md) | ROADMAP、迭代 plan、自检、技术债务 |
+| [team-collaboration-spec.md](./team-collaboration-spec.md) | 团队上下文指引与同步节奏 |
 | [implementation-status.md](./implementation-status.md) | **实现 vs Spec** 矩阵（开发前查） |
 | [architecture-foundation-spec.md](./architecture-foundation-spec.md) | 基础架构 F-01～F-13 就绪清单 |
+| [quality-gates-spec.md](./quality-gates-spec.md) | CI、AI Code Review、Branch Protection |
+| [plugin-architecture-spec.md](./plugin-architecture-spec.md) | 核心 + 插件生态 |
 | [DEVELOPMENT.md](../DEVELOPMENT.md) | 人类开发者入口 |
+| [ROADMAP.md](../ROADMAP.md) · [plan/implementation-plan.md](../plan/implementation-plan.md) | 里程碑与当前迭代 |
+| [adr/README.md](../adr/README.md) | 架构决策记录 ADR |
+| [prompts/README.md](../prompts/README.md) | 版本化 AI Prompt |
 
 ---
 

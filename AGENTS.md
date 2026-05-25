@@ -21,14 +21,23 @@
 | 提交信息 | Conventional Commits + scope |
 | AI 推理 | 仅 `ai` 仓库，不在 server/desktop 内嵌 LLM |
 | Spec 边界 | 新行为须有 FR-xxx；无 FR 则先补 Spec |
+| 前端状态 | **Zustand**；禁止 Redux |
+| 样式 | Sass Modules + **BEM**；禁止 Tailwind |
+| 后端分层 | Controller → Service → Repository；主键 **UUIDv7** |
+| 插件 | 独立仓 + `shared/plugin/manifest`；不污染主仓业务目录 |
+| Prompt | **禁止自由编造**；用 [prompts/](./prompts/) 版本化文件 |
+| 架构决策 | 遵循 [adr/](./adr/README.md)；性能 Rust 见 spec（不写 docs 排期） |
 
 ## 功能开发检查清单
 
+- [ ] 已读 [ROADMAP](./ROADMAP.md) 与 [plan/implementation-plan.md](./plan/implementation-plan.md) 本迭代 FR
 - [ ] 已读 `implementation-status` 相关行
 - [ ] Spec diff（FR + 验收）与代码同 PR 或 Spec 先行
 - [ ] `shared` build/test 通过（若改契约）
 - [ ] 用户可见 → `docs/docs/zh|en/user` 或 `guide`
 - [ ] 更新 `spec/implementation-status.md`（若改变就绪度）
+- [ ] 插件变更对照 `spec/plugin-architecture-spec.md`
+- [ ] 发现 AI 幻觉 → 更新 `prompts/security-review.prompt.md`
 
 ## 输出要求
 

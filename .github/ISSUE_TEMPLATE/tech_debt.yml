@@ -1,0 +1,43 @@
+name: Technical debt
+description: Register unfinished FR from iteration self-check
+title: "[debt]: "
+labels: ["tech-debt"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Created from [plan/implementation-plan.md](../../plan/implementation-plan.md) §4.1.
+        Link the FR and target milestone.
+
+  - type: input
+    id: debt_id
+    attributes:
+      label: Debt ID (e.g. TD-002)
+    validations:
+      required: true
+
+  - type: input
+    id: fr_id
+    attributes:
+      label: Related FR ID
+    validations:
+      required: true
+
+  - type: input
+    id: milestone
+    attributes:
+      label: Target milestone (e.g. M1)
+    validations:
+      required: true
+
+  - type: textarea
+    id: reason
+    attributes:
+      label: Why deferred?
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria to close debt

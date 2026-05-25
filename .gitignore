@@ -26,3 +26,11 @@ Thumbs.db
 
 # 可选本地数据
 *.local
+
+
+# temp test
+test.md
+test.js
+test.html
+test.ts
+test.tsx

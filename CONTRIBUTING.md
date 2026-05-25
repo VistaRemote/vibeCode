@@ -17,6 +17,14 @@
 | [Spec 索引](./spec/README.md) | 实现前必读 |
 | [文档站](./docs/README.md) | Rspress：`cd docs && pnpm dev` |
 | [AGENTS.md](./AGENTS.md) | AI 协作者约定 |
+| [ROADMAP.md](./ROADMAP.md) | 里程碑与当前冲刺 |
+| [CHANGELOG.md](./CHANGELOG.md) | 版本变更记录 |
+| [plan/implementation-plan.md](./plan/implementation-plan.md) | 当前迭代契约与自检 |
+| [adr/README.md](./adr/README.md) | 架构决策记录 |
+| [prompts/README.md](./prompts/README.md) | 版本化 AI 审查 Prompt |
+| [团队协作 Spec](./spec/team-collaboration-spec.md) | 上下文指引与同步节奏 |
+| [质量门禁 Spec](./spec/quality-gates-spec.md) | CI + AI Review + Branch Protection |
+| [插件架构 Spec](./spec/plugin-architecture-spec.md) | 核心 + 插件生态 |
 
 ---
 
@@ -32,6 +40,10 @@
 ### IDE（必做）
 
 使用 **`vista-remote.code-workspace`** 打开多根工作区，否则只能看到一个 Git 仓库。
+
+**IntelliJ**：Settings → Version Control → Directory Mappings，并为每个子仓选择 Commit 窗口顶部的 **Repository**。
+
+**合并规则**：`main` 须 **人工 Approve** + CI 绿；AI Code Review 仅建议性评论（见 [quality-gates-spec](./spec/quality-gates-spec.md)）。
 
 安装推荐扩展（Cursor/VS Code 会提示）：
 

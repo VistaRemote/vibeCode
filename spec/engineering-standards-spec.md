@@ -134,8 +134,49 @@ jobs:
 
 ---
 
-## 8. RFC / Changelog
+## 8. 前端强制规范（FR-ENG-FE）
+
+| ID | 规则 | 验收 |
+| :--- | :--- | :--- |
+| FR-ENG-FE-01 | 客户端状态管理 **Zustand** | Code Review / AI Review |
+| FR-ENG-FE-02 | **禁止 Redux**（`redux`、`@reduxjs/toolkit`、`react-redux`） | 依赖扫描 + Review |
+| FR-ENG-FE-03 | **禁止 Tailwind** 作为主样式方案 | 无 `tailwind.config.*` |
+| FR-ENG-FE-04 | 样式：**Sass CSS Modules + BEM** 命名 | 见 frontend-toolchain FR-CSS-06 |
+| FR-ENG-FE-05 | UI 组件库：**antd**（已规定），不引入 MUI 等第二套 | |
+
+详见 [frontend-toolchain-spec.md](./frontend-toolchain-spec.md)。
+
+---
+
+## 9. 后端分层规范（FR-ENG-BE）
+
+| ID | 规则 | 验收 |
+| :--- | :--- | :--- |
+| FR-ENG-BE-01 | 主键 ID：**UUIDv7**（时间有序）；禁止 UUIDv4 作为默认主键 | 实体与迁移 Review |
+| FR-ENG-BE-02 | **Controller**：参数校验、鉴权装饰器、调用 Service；**禁止**业务逻辑与 SQL | 静态 Review |
+| FR-ENG-BE-03 | **Service**：领域逻辑、事务边界；**禁止**直接 `Repository` 以外的裸 SQL | |
+| FR-ENG-BE-04 | **Repository/DAO**：唯一数据库访问层；TypeORM `Repository` 仅在此层 | |
+| FR-ENG-BE-05 | 插件不得绕过 Repository 访问核心表 | plugin-architecture-spec |
+
+详见 [server-spec.md](./server-spec.md) §分层。
+
+---
+
+## 10. Prompts 与 AI 协作
+
+| ID | 规则 |
+| :--- | :--- |
+| FR-ENG-AI-01 | 审查 Prompt **仅** 使用 [prompts/](../prompts/) 版本化文件 |
+| FR-ENG-AI-02 | 合并 **必须** 人工 Approve；AI 审查非阻塞 |
+| FR-ENG-AI-03 | 新幻觉点登记 `prompts/security-review.prompt.md` |
+
+见 [quality-gates-spec.md](./quality-gates-spec.md)。
+
+---
+
+## 11. RFC / Changelog
 
 | 日期 | 版本 | 变更 |
 | :--- | :--- | :--- |
+| 2026-05-24 | 1.1.0 | Zustand/BEM/UUIDv7/分层、Prompts、质量门禁引用 |
 | 2026-05-24 | 1.0.0 | Biome、EditorConfig、Commitlint、Cursor Rules、PR/开源惯例 |

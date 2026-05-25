@@ -81,10 +81,27 @@ server/
 │   ├── signaling/
 │   ├── ice/
 │   ├── sfu/
+│   ├── plugins/                # Plugin Host（Dynamic Module，PLUGIN-α）
 │   └── common/
 ├── test/
 └── package.json
 ```
+
+### 3.1 分层（强制）
+
+```text
+HTTP/WS Request
+  → Controller（DTO 校验、Guard、调用 Service）
+    → Service（业务、事务）
+      → Repository（TypeORM 唯一 DB 入口）
+```
+
+| ID | 规则 | 验收 |
+| :--- | :--- | :--- |
+| FR-SRV-LAYER-01 | **Controller** 不写业务逻辑、不拼 SQL、不开启事务 | Review |
+| FR-SRV-LAYER-02 | **Service** 不直接使用 `DataSource.query`；不经 Controller 暴露 | |
+| FR-SRV-LAYER-03 | **Repository** 封装 Entity 操作；复杂查询在此层 | |
+| FR-SRV-LAYER-04 | 主键 **UUIDv7**（时间有序）；实现可用 `uuidv7` 或 DB 函数 | 见 engineering-standards FR-ENG-BE-01 |
 
 ---
 
@@ -109,10 +126,10 @@ server/
 
 | ID | 需求 | 验收 |
 | :--- | :--- | :--- |
-| FR-ORM-01 | 所有 Entity 使用 `uuid` 主键（`PrimaryGeneratedColumn('uuid')`） | |
+| FR-ORM-01 | 所有 Entity 主键为 **UUIDv7**（`PrimaryColumn` + 应用生成，或 DB UUIDv7） | 禁止默认 UUIDv4 |
 | FR-ORM-02 | 时间字段 `createdAt`/`updatedAt` 使用 `@CreateDateColumn` / `@UpdateDateColumn` | |
 | FR-ORM-03 | 禁止生产 `synchronize: true` | 仅 migrations |
-| FR-ORM-04 | Repository 仅通过 Service 暴露，Controller 不直接注入 Repository（除简单 CRUD Admin） | |
+| FR-ORM-04 | Controller **禁止** 注入 Repository；Admin 列表亦经 Service | FR-SRV-LAYER-01 |
 | FR-ORM-05 | 软删除敏感数据使用 `deletedAt`（User、Device） | |
 
 ---

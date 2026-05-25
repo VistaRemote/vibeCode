@@ -42,3 +42,15 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile || pnpm install
       - run: pnpm audit --audit-level=high
+
+  plan-check:
+    name: Implementation plan checklist
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.12'
+      - name: Check unchecked plan items
+        run: pnpm plan:check

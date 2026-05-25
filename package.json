@@ -14,7 +14,8 @@
     "env:uat": "node tooling/scripts/apply-env.mjs uat",
     "dev:up": "node tooling/scripts/dev-up.mjs",
     "dev:up:ai": "node tooling/scripts/dev-up.mjs --with-ai",
-    "setup:repo": "node tooling/scripts/setup-single-repo.mjs"
+    "setup:repo": "node tooling/scripts/setup-single-repo.mjs",
+    "plan:check": "node tooling/scripts/check-implementation-plan.mjs"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.0.6",

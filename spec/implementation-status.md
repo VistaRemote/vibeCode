@@ -17,6 +17,8 @@
 | **shared 契约** | ✅ | 信令、控制、WebRTC、auth、billing、telemetry、ai jobs |
 | **本地开发体验** | ✅ | `dev.sh`、`pnpm env:*`、单仓 `pnpm setup` |
 | **CI/CD 规范** | ✅ | Spec + 各仓 workflow 模板 |
+| **协作/迭代** | ✅ | ROADMAP、plan、ADR、prompts、quality-gates |
+| **插件体系** | 🟡 | Spec + shared Manifest；Host 加载 PLUGIN-α |
 | **Server 业务持久化** | 🟡 | 内存 store；TypeORM/MySQL 为 P1 |
 | **端到端远程闭环** | 🟡 | 信令/策略/播放骨架在；配对 API（码/链/QR）🟡；JWT P1 |
 | **Agent 三包体** | 🟡 | Spec+契约+构建脚本；electron-builder 分包 P1 |
@@ -61,6 +63,7 @@
 | AI 摘要 | ai-platform | 🟡 | summarize processor |
 | 企业安全遥测 | enterprise-security | 🟡 | 规则入库、Admin 列表 |
 | 订单支付 | billing-commerce | 🟡 | 微信/支付宝适配器 |
+| 插件 Host | plugin-architecture | 🟡 | Manifest 契约；Dynamic Module / vt-cli P1 |
 
 ---
 

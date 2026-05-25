@@ -51,7 +51,7 @@ web/
 | 组件库 | **Ant Design 5** |
 | 样式 | **Sass**（CSS Modules） |
 | 路由 | React Router 6+ |
-| 状态 | Zustand 或 React Query（按场景） |
+| 状态 | **Zustand**（强制）；服务端列表可用 TanStack Query；**禁止 Redux** |
 | 契约 | `@vistaremote/shared` |
 
 详见 [frontend-toolchain-spec.md](./frontend-toolchain-spec.md)。
