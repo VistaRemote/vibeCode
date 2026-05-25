@@ -16,6 +16,9 @@ VistaRemote 用 ADR 记录 **不可轻易推翻** 的架构决策；实现与 Sp
 | [0002](./0002-webrtc-media-stack.md) | WebRTC + mediasoup 媒体栈 | Accepted |
 | [0003](./0003-rust-not-cpp-for-native.md) | 性能优化用 Rust，不用 C++ | Accepted |
 | [0004](./0004-plugin-core-extension-model.md) | 核心 + 插件扩展模型 | Accepted |
+| [0005](./0005-node-24-lts.md) | Node.js 24 LTS 最低版本 | Accepted |
+| [0006](./0006-bullmq-async-jobs.md) | 异步任务队列 BullMQ（非 RabbitMQ/Kafka） | Accepted |
+| [0007](./0007-no-flutter-cross-platform-ui.md) | 跨端 UI 不采用 Flutter（React + RN + Rust 原生） | Accepted |
 
 ## 何时写 ADR
 

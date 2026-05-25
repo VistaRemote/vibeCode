@@ -25,8 +25,8 @@
 
 | 组件 | 选型 |
 | :--- | :--- |
-| 主运行时 | Node.js 22+、TypeScript |
-| 队列 | BullMQ + Redis |
+| 主运行时 | Node.js 24+、TypeScript |
+| 队列 | BullMQ + Redis（选型见 [job-queue-spec.md](./job-queue-spec.md)） |
 | LLM | LangChain.js / LangGraph.js → **Ollama / vLLM**（自托管） |
 | 向量库 | **Qdrant**（自托管） |
 | 重 ML | **`ai/python-worker`**（FastAPI），由 Node Worker HTTP 调用 |

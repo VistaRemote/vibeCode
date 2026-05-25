@@ -14,7 +14,7 @@
 | :--- | :--- |
 | 1. 克隆 Meta-Repo | `git clone …/vista-remote.git && cd vista-remote` |
 | 2. 拉子仓库 | `./init.sh` 或 `.\init.ps1` |
-| 3. Node | `nvm use`（≥ 22.12） |
+| 3. Node | `nvm use`（≥ 24.11 LTS） |
 | 4. **一键搭建** | `./dev.sh` 或 `.\dev.ps1` |
 | 5. 开工作区 | `vista-remote.code-workspace` |
 

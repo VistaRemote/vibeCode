@@ -81,7 +81,7 @@ function writeAgents(repoKey, repoPath) {
 | 常用命令 | ${info.cmds} |
 | 格式化 | Biome — \`pnpm lint\` |
 | 测试 | Rstest — \`pnpm test\` |
-| Node | ≥ 22（\`.nvmrc\` → 22.12） |
+| Node | ≥ 24（\`.nvmrc\` → 24.11 LTS） |
 
 ## 硬约束
 

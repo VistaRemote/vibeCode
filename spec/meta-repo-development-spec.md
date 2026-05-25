@@ -240,9 +240,9 @@ Meta-Repo CI **仅** 脚手架 `biome check` + audit，不替代子仓。
 
 | 项 | 约定 |
 | :--- | :--- |
-| 最低版本 | **22.x**（`package.json#engines`: `>=22.0.0`） |
-| 推荐版本 | **22.12 LTS**（各仓 `.nvmrc`、CI `node-version: 22.12`） |
-| 生产 / Docker | `node:22-alpine` 或等价镜像（见 deploy-spec） |
+| 最低版本 | **24.x**（`package.json#engines`: `>=24.0.0`） |
+| 推荐版本 | **24.11 LTS**（各仓 `.nvmrc`、CI `node-version: 24.11`） |
+| 生产 / Docker | `node:24-alpine` 或等价镜像（见 deploy-spec） |
 
 ---
 

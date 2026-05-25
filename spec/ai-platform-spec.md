@@ -48,11 +48,24 @@
 
 ---
 
-## 3. 技术路线：TypeScript 为主，Python 补强
+## 3. 异步队列：BullMQ（Normative）
+
+**完整选型理由**见 [job-queue-spec.md](./job-queue-spec.md) 与 [ADR-0006](../adr/0006-bullmq-async-jobs.md)。
+
+| 要点 | 说明 |
+| :--- | :--- |
+| 选型 | **BullMQ + Redis**；**不** 使用 RabbitMQ / Kafka 作主任务队列 |
+| Server | `@nestjs/bullmq` 生产 Job |
+| AI | Worker `@Processor` 消费；支持延迟、指数退避、任务状态 |
+| Redis | 与会话/信令 **复用** 同一 Redis（见 deploy-spec） |
+
+---
+
+## 4. 技术路线：TypeScript 为主，Python 补强
 
 **禁止** 将整个 AI 平台重写为 Python 单体——团队主栈为 **TypeScript**，`server` / `web` / `shared` 契约一致。
 
-### 3.1 分工矩阵
+### 4.1 分工矩阵
 
 | 能力 | 运行时 | 框架/库 | 说明 |
 | :--- | :--- | :--- | :--- |
@@ -63,7 +76,7 @@
 | 基线训练、Isolation Forest、重时序 | **Python 微服务** | FastAPI + scikit-learn / pandas | `ai` HTTP 内网调用 |
 | 可选 CV 训练（非端侧） | **Python** | 同上 | P2+ |
 
-### 3.2 调用关系
+### 4.2 调用关系
 
 ```text
 ┌─────────────┐     BullMQ      ┌──────────────────────────────────────┐
@@ -86,7 +99,7 @@
 
 ---
 
-## 4. 逻辑架构（私有化）
+## 5. 逻辑架构（私有化）
 
 ```text
  desktop Agent
@@ -106,9 +119,9 @@
 
 ---
 
-## 5. AI 能力与技术选型
+## 6. AI 能力与技术选型
 
-### 5.1 能力清单
+### 6.1 能力清单
 
 | 能力 | 套餐 | 实现 |
 | :--- | :--- | :--- |
@@ -120,7 +133,7 @@
 | 流程优化 / AI 替代建议 | Enterprise（路线图） | LangGraph 多步 + 向量检索历史模式 + 审批流（Admin） |
 | 关键词触发录制 | Enterprise | Node 规则，零 GPU |
 
-### 5.2 LLM（私有化强制默认）
+### 6.2 LLM（私有化强制默认）
 
 | 项目 | 选型 |
 | :--- | :--- |
@@ -130,7 +143,7 @@
 | 模型示例 | `llama3.2`、`qwen2.5`（按组织策略配置） |
 | 脱敏 | 入模前剥离 PII（路径、账号、证件号正则） |
 
-### 5.3 向量数据库（自托管）
+### 6.3 向量数据库（自托管）
 
 | 选项 | 场景 |
 | :--- | :--- |
@@ -139,7 +152,7 @@
 
 用途：窗口标题/SOP/历史报告片段检索，支撑 RAG 摘要与流程优化建议。**禁止** 默认使用 Pinecone 等仅 SaaS 向量库。
 
-### 5.4 异常检测
+### 6.4 异常检测
 
 | 阶段 | 技术 | 运行时 |
 | :--- | :--- | :--- |
@@ -149,7 +162,7 @@
 
 ---
 
-## 6. `ai` 仓库结构（Normative）
+## 7. `ai` 仓库结构（Normative）
 
 ```text
 ai/
@@ -172,7 +185,9 @@ ai/
 
 ---
 
-## 7. 任务类型（队列 Job）
+## 8. 任务类型（队列 Job）
+
+> 队列选型见 [job-queue-spec.md](./job-queue-spec.md)。
 
 | JobType | 触发 | 运行时 |
 | :--- | :--- | :--- |
@@ -188,11 +203,11 @@ Payload：`shared/src/ai/`。
 
 ---
 
-## 8. API 边界
+## 9. API 边界
 
 （与 0.4 版相同，略）
 
-### 8.1 `server` 对外
+### 9.1 `server` 对外
 
 | Method | Path | 说明 |
 | :--- | :--- | :--- |
@@ -201,7 +216,7 @@ Payload：`shared/src/ai/`。
 | `GET` | `/api/v1/ai/reports/process-optimization` | 流程优化建议（Enterprise，P2） |
 | `GET` | `/api/v1/security/incidents` | 安全事件 |
 
-### 8.2 内网
+### 9.2 内网
 
 | 调用方 | 被调方 | 协议 |
 | :--- | :--- | :--- |
@@ -213,7 +228,7 @@ Payload：`shared/src/ai/`。
 
 ---
 
-## 9. 功能需求
+## 10. 功能需求
 
 | ID | 需求 | 验收 |
 | :--- | :--- | :--- |
@@ -229,7 +244,7 @@ Payload：`shared/src/ai/`。
 
 ---
 
-## 10. 隐私与合规
+## 11. 隐私与合规
 
 | ID | 需求 |
 | :--- | :--- |
@@ -240,7 +255,7 @@ Payload：`shared/src/ai/`。
 
 ---
 
-## 11. 里程碑
+## 12. 里程碑
 
 | 阶段 | 交付 |
 | :--- | :--- |
@@ -254,9 +269,10 @@ Payload：`shared/src/ai/`。
 
 ---
 
-## 12. RFC / Changelog
+## 13. RFC / Changelog
 
 | 日期 | 版本 | 变更 |
 | :--- | :--- | :--- |
-| 2026-05-24 | 0.3.0-draft | 独立 `ai` 仓库 |
+| 2026-05-24 | 0.6.0 | §3 BullMQ 选型；链 job-queue-spec、ADR-0006 |
 | 2026-05-24 | 0.5.0 | 核心卖点：私有化+向量库；Node 主栈+LangChain/LangGraph；Python 微服务；禁默认第三方 LLM |
+| 2026-05-24 | 0.3.0-draft | 独立 `ai` 仓库 |

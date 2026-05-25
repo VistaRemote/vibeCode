@@ -15,7 +15,8 @@
     "dev:up": "node tooling/scripts/dev-up.mjs",
     "dev:up:ai": "node tooling/scripts/dev-up.mjs --with-ai",
     "setup:repo": "node tooling/scripts/setup-single-repo.mjs",
-    "plan:check": "node tooling/scripts/check-implementation-plan.mjs"
+    "plan:check": "node tooling/scripts/check-implementation-plan.mjs",
+    "setup:subrepo-docs": "node tooling/scripts/sync-subrepo-scaffold.mjs"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.0.6",
@@ -24,7 +25,7 @@
     "husky": "^9.1.7"
   },
   "engines": {
-    "node": ">=22.0.0"
+    "node": ">=24.0.0"
   },
   "packageManager": "pnpm@9.15.0"
 }

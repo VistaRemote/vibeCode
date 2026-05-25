@@ -43,6 +43,10 @@ docs/
 │   │   ├── positioning.mdx
 │   │   ├── desktop-performance.mdx
 │   │   ├── overview.mdx
+│   │   ├── tech-advantages.mdx    # 技术选型产品优势（决策者/运维/开发）
+│   │   ├── job-queue.mdx          # BullMQ 选型（源自 job-queue-spec）
+│   │   ├── ai-platform.mdx
+│   │   ├── messaging-transport.mdx
 │   │   ├── webrtc-topology.mdx
 │   │   ├── meta-repo.mdx
 │   │   └── positioning.mdx        # 源自 positioning-and-advantages.md

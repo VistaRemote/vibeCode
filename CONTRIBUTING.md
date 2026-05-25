@@ -30,7 +30,7 @@
 
 ## 1. 环境准备
 
-- **Node.js** ≥ 22（推荐 `.nvmrc` 中的 **22.12 LTS**，与 Rspack/Rstest 及生产环境一致）
+- **Node.js** ≥ 24（推荐 .nvmrc 中的 **24.11 LTS**，与 Rspack/Rstest 及生产环境一致；见 [ADR-0005](./adr/0005-node-24-lts.md)）
 - **pnpm** ≥ 9
 - **Git** 2.40+
 - 克隆 Meta-Repo 后执行 `./init.sh`（Windows：`.\init.ps1`）拉取子仓库

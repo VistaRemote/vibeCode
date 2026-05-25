@@ -32,8 +32,9 @@
 | **L0 系统** | [system-overview.md](./system-overview.md) | — |
 | WebRTC 媒体 | [webrtc-architecture-spec.md](./webrtc-architecture-spec.md) | P2P/TURN、mediasoup、播放优化 |
 | 消息传输 | [messaging-transport-spec.md](./messaging-transport-spec.md) | WS 信令、SSE 通知、DataChannel |
+| **异步任务队列** | [job-queue-spec.md](./job-queue-spec.md) | **BullMQ/Redis**；AI Job；非 RabbitMQ/Kafka |
 | 认证与授权 | [authorization-spec.md](./authorization-spec.md) | RBAC + ABAC + Plan；JWT/信令票 |
-| 前端工具链 | [frontend-toolchain-spec.md](./frontend-toolchain-spec.md) | — |
+| 前端工具链 | [frontend-toolchain-spec.md](./frontend-toolchain-spec.md) | React/Rsbuild/RN；**非 Flutter**（ADR-0007） |
 | 套餐商业化 | [commercial-tier-spec.md](./commercial-tier-spec.md) | 试用；SFU/降云试用后付费 |
 | 订单与支付 | [billing-commerce-spec.md](./billing-commerce-spec.md) | 买断/订阅；微信/支付宝等；Admin 三模块 |
 | 开源与商业授权 | [licensing-spec.md](./licensing-spec.md) | 个人非盈利免费；商业一律收费 |
@@ -56,6 +57,7 @@
 | Git / 协作 | [git-collaboration-spec.md](./git-collaboration-spec.md) | — |
 | CI/CD 与发布 | [cicd-release-spec.md](./cicd-release-spec.md) | shared 发布、下游同步、分仓 tag |
 | 工程规范 | [engineering-standards-spec.md](./engineering-standards-spec.md) | — |
+| 子仓脚手架 | [subrepo-scaffold-spec.md](./subrepo-scaffold-spec.md) | README/LICENSE 完备性 |
 | Meta 开发/发布 | [meta-repo-development-spec.md](./meta-repo-development-spec.md) | Biome 分层、单独发版 |
 | 开发者体验 | [developer-experience-spec.md](./developer-experience-spec.md) | dev-up、env 切换、单仓 setup |
 | Agent 分发/接入 | [agent-distribution-spec.md](./agent-distribution-spec.md) | 数字码/QR/链接；三包体；企业自动监控 |

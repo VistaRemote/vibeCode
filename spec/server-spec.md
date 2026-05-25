@@ -38,7 +38,7 @@
 | 数据库 | **MySQL** 8.0+（InnoDB, utf8mb4） | **唯一**关系型库；禁用 PostgreSQL |
 | 迁移 | TypeORM migrations | `npm run migration:run` |
 | 校验 | `class-validator` + Zod（WS，来自 shared） | |
-| 缓存/队列 | **Redis** + **BullMQ** | 配对码、AI 任务、WS 多实例 |
+| 缓存/队列 | **Redis** + **BullMQ** | 配对码、AI 任务、WS 多实例；选型见 [job-queue-spec.md](./job-queue-spec.md) |
 | 对象存储 | MinIO / S3 兼容 | 录制分片（见 recording-playback-spec） |
 | SFU | **mediasoup** 侧车（M3+） | `SfuProvider` 抽象；**不**采用 SRS |
 | TURN | **coturn** | ICE 下发；负载高时 `TransportPolicyService` 引导 SFU |

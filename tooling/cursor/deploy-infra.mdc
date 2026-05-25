@@ -8,4 +8,4 @@ alwaysApply: false
 
 - 栈：**MySQL 8**、Redis、可选 MinIO、**Ollama**（本地 LLM）。
 - 本地开发：`compose/docker-compose.dev.yml`；生产见 `deploy-spec`。
-- 应用镜像：`node:22-alpine`；不在此仓写业务逻辑。
+- 应用镜像：`node:24-alpine`；不在此仓写业务逻辑。

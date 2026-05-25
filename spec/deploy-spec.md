@@ -15,7 +15,7 @@
 提供 **可复现的一键/分步部署** 模板，覆盖：
 
 - **MySQL 8**（必选，utf8mb4）
-- **Redis**（必选，会话 + BullMQ）
+- **Redis**（必选，会话、信令 Pub/Sub、SSE 广播 + **BullMQ 任务队列**；见 [job-queue-spec.md](./job-queue-spec.md)）
 - **MinIO / S3**（Pro+ 录制）
 - **Ollama**（或兼容 OpenAI API 的私有化 LLM，**非**默认公网 OpenAI）
 - **Qdrant**（AI **向量数据库**，RAG / 行为模式检索）
@@ -37,7 +37,7 @@
 ```text
 deploy/
 ├── docker/
-│   ├── server.Dockerfile       # 基础镜像 node:22-alpine（或 22-bookworm-slim）
+│   ├── server.Dockerfile       # 基础镜像 node:24-alpine（或 22-bookworm-slim）
 │   └── web.Dockerfile
 ├── compose/
 │   ├── docker-compose.yml          # 开发/小规模

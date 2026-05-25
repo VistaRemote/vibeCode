@@ -15,6 +15,14 @@
 
 **不负责**：作为被控端采集屏幕（Out of Scope）。
 
+### 1.1 为何不采用 Flutter
+
+| 考量 | 说明 |
+| :--- | :--- |
+| 性能叙事 | Flutter 的 Skia/Impeller 优化 **自绘 UI**；远控瓶颈在 **WebRTC + 原生视频 Surface**，RN 新架构 **JSI** 已直连 `react-native-webrtc` |
+| 底层能力 | 被控端采集/编码在 **desktop**（Rust），移动主控 **不需要** Dart 截屏/编码 |
+| 工程一致 | 与 `web`/`desktop` 共享 **TypeScript** 信令、`shared` 契约、antd 设计语言；见 [ADR-0007](../adr/0007-no-flutter-cross-platform-ui.md) |
+
 ---
 
 ## 2. 目录结构（目标）

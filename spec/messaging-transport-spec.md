@@ -22,6 +22,8 @@
 
 因此：**信令 = WebSocket**；**通知 = SSE**；**控制 = DataChannel**。
 
+**异步后台任务**（AI 审计、录制摘要等）**不** 走本 Spec，统一用 **BullMQ + Redis**，见 [job-queue-spec.md](./job-queue-spec.md)。
+
 ---
 
 ## 2. 功能需求

@@ -35,11 +35,12 @@
 
 | 层级 | 选型 | Spec |
 | :--- | :--- | :--- |
-| 前端构建 | **Rsbuild / Rspack** | [frontend-toolchain-spec.md](./frontend-toolchain-spec.md) |
+| 前端构建 | **Rsbuild / Rspack**（**非 Flutter**；见 ADR-0007） | [frontend-toolchain-spec.md](./frontend-toolchain-spec.md) |
+| 原生性能 | **Rust**（DXGI/NVENC/Hook，N-API） | [desktop-performance-spec.md](./desktop-performance-spec.md) · ADR-0003 |
 | 前端 UI | **Ant Design 5** + Sass Modules | 同上 |
 | Web | Client + **Admin 管理台** | [web-spec.md](./web-spec.md) |
 | 后端 | **NestJS + TypeORM + MySQL 8** | [server-spec.md](./server-spec.md) |
-| AI 分析 | **独立 `ai` 仓库** + BullMQ + LLM | [ai-platform-spec.md](./ai-platform-spec.md) |
+| AI 分析 | **独立 `ai` 仓库** + BullMQ + LLM | [ai-platform-spec.md](./ai-platform-spec.md) · [job-queue-spec.md](./job-queue-spec.md) |
 | 套餐 | free / pro / enterprise | [commercial-tier-spec.md](./commercial-tier-spec.md) |
 | 录制 | S3/MinIO + 回放 | [recording-playback-spec.md](./recording-playback-spec.md) |
 | 企业安全 | 遥测 + 规则 + AI 洞察 | [enterprise-security-spec.md](./enterprise-security-spec.md) |

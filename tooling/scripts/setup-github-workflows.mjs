@@ -47,7 +47,7 @@ function patchCiForShared(ciPath, consumer) {
   );
 
   yml = yml.replace(
-    /(      - uses: actions\/setup-node@v4\n        with:\n          node-version: '22\.12'\n          cache: pnpm\n)(\n      - run: pnpm install)/g,
+    /(      - uses: actions\/setup-node@v4\n        with:\n          node-version: '24\.11'\n          cache: pnpm\n)(\n      - run: pnpm install)/g,
     `$1\n      - name: Install & verify\n        working-directory: \${{ steps.shared.outputs.consumer-path }}\n        env:\n          SHARED_CI: '1'$2`,
   );
 
@@ -140,7 +140,7 @@ jobs:
           version: 9
       - uses: actions/setup-node@v4
         with:
-          node-version: '22.12'
+          node-version: '24.11'
           cache: pnpm
       - run: pnpm install --frozen-lockfile && pnpm build
       - uses: actions/upload-pages-artifact@v3

@@ -13,7 +13,7 @@
 
 - **主栈**：TypeScript（React + NestJS + Electron + RN）
 - **契约**：`@vistaremote/shared` 为跨端 SSOT
-- **例外**：AI 重算力 `python-worker`；未来原生性能模块用 **Rust**（见 ADR-0003），不用 C++
+- **例外**：AI 重算力 `python-worker`；原生性能模块用 **Rust**（见 ADR-0003），不用 C++；**不** 采用 Flutter/Dart 跨端 UI（见 ADR-0007）
 
 ## 理由
 
@@ -28,5 +28,6 @@
 
 ## 关联
 
+- [ADR-0007](./0007-no-flutter-cross-platform-ui.md)
 - [product-positioning-spec.md](../spec/product-positioning-spec.md)
 - [frontend-toolchain-spec.md](../spec/frontend-toolchain-spec.md)

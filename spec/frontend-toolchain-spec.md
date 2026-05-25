@@ -21,6 +21,16 @@ VistaRemote **大前端生态统一采用 Rspack 系工具链**（Rsbuild / Rspr
 | React Native | **Metro** | RN 官方打包器；**不得**强行 Rspack 打包 RN 运行时 |
 | 共享样式 Token | **Sass 变量包** | 可放在 `web/packages/theme`，供 RN 通过构建脚本同步 CSS 变量（P1） |
 
+### 1.1 跨端 UI：不采用 Flutter（Normative）
+
+| ID | 决策 | 说明 |
+| :--- | :--- | :--- |
+| FR-FE-X-01 | **禁止** Flutter/Dart 作为 Web/Desktop/Mobile 主 UI 栈 | 见 [ADR-0007](../adr/0007-no-flutter-cross-platform-ui.md) |
+| FR-FE-X-02 | 大前端统一 **React 19** + Rsbuild（Web/Desktop）+ **RN 新架构/JSI**（Mobile） | 「Flutter GPU 更快」不适用于远控；瓶颈在 WebRTC/系统 API |
+| FR-FE-X-03 | DXGI/NVENC/Hook 等仅 **Rust**（`desktop/native/`），经 N-API / Native Module 接入 | 不由 Dart 实现 |
+
+**理由摘要**：Rspack/Rsbuild（Rust 编写）已解决构建速度；Electron Chromium **WebGL2/WebGPU** 与 RN **JSI** 已缓解运行时桥接延迟。Flutter 无法替代 Rust 底层，且与 `shared` TS 契约、antd 设计体系、Nest 生态割裂。
+
 ---
 
 ## 2. UI 组件库：Ant Design
@@ -134,6 +144,7 @@ Client 与 Admin **必须**复用 `packages/ui`，禁止复制粘贴相同表单
 
 ## 7. Out of Scope
 
+- **Flutter / Dart** 跨端 UI（见 ADR-0007）
 - Vue / Svelte 技术栈
 - CSS-in-JS 作为默认（styled-components 等，除非 antd 官方示例要求）
 
@@ -143,5 +154,6 @@ Client 与 Admin **必须**复用 `packages/ui`，禁止复制粘贴相同表单
 
 | 日期 | 版本 | 变更 |
 | :--- | :--- | :--- |
+| 2026-05-24 | 0.4.0-draft | §1.1 不采用 Flutter；链 ADR-0007 |
 | 2026-05-24 | 0.3.0-draft | BEM、Zustand 强制、禁 Redux |
 | 2026-05-24 | 0.2.0-draft | 初版：Rspack/Rsbuild、Ant Design、Sass |

@@ -14,7 +14,7 @@ import { findMetaRoot, REPO_DIRS } from './lib/paths.mjs';
 
 const metaRoot = findMetaRoot();
 if (!metaRoot) {
-  console.error('❌ Run this from Meta-Repo root or a sub-repo with ../vista-remote tooling.');
+  console.error('�?Run this from Meta-Repo root or a sub-repo with ../vista-remote tooling.');
   process.exit(1);
 }
 
@@ -46,12 +46,12 @@ if (existsSync(join(metaRoot, 'shared'))) {
   try {
     execSync('pnpm build', { cwd: join(metaRoot, 'shared'), stdio: 'inherit' });
   } catch {
-    console.warn('⚠️  shared build failed — check Node >= 22.12');
+    console.warn('⚠️  shared build failed �?check Node >= 24.11');
   }
 }
 
 console.log(`
-✅ Done. Next:
+�?Done. Next:
    - Switch env:  pnpm env:dev   (from meta root)
    - Full stack:  pnpm dev:up
    - This repo:   cd ${repoName ?? '.'} && pnpm dev   (or pnpm start for mobile)

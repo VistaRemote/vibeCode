@@ -1,4 +1,4 @@
-# Template â†’ web/.github/workflows/release.yml
+# Template â†?web/.github/workflows/release.yml
 name: Release web static assets
 
 on:
@@ -32,7 +32,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '22.12'
+          node-version: '24.11'
           cache: pnpm
           cache-dependency-path: ${{ steps.shared.outputs.consumer-path }}/pnpm-lock.yaml
 

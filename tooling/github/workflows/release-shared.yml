@@ -1,4 +1,4 @@
-# Template â†’ shared/.github/workflows/release.yml
+# Template â†?shared/.github/workflows/release.yml
 name: Release @vistaremote/shared
 
 on:
@@ -39,7 +39,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '22.12'
+          node-version: '24.11'
           cache: pnpm
           registry-url: https://npm.pkg.github.com
           scope: '@vistaremote'

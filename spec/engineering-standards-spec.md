@@ -94,7 +94,7 @@
 | **Cursor Rules** | 各子仓库 `.cursor/rules/`（`tooling/cursor/` + `setup-ide-config.mjs`） |
 | **VS Code** | 各子仓库 `.vscode/settings.json`（Biome format on save） |
 | **AGENTS.md** | 各子仓库根目录（AI 协作） |
-| **Node 版本锁定** | **≥ 22**（`engines`）；`.nvmrc` 固定 **22.12 LTS**；CI 使用 `node-version: 22.12` |
+| **Node 版本锁定** | **≥ 24**（`engines`）；`.nvmrc` 固定 **24.11 LTS**；CI 使用 `node-version: 24.11` |
 | **依赖锁定** | pnpm `pnpm-lock.yaml` 进库 |
 | **Git 属性** | `.gitattributes`（LF、linguist） |
 | **PR/Issue 模板** | `.github/PULL_REQUEST_TEMPLATE.md`、ISSUE_TEMPLATE |
@@ -174,9 +174,21 @@ jobs:
 
 ---
 
-## 11. RFC / Changelog
+## 11. 子仓库脚手架（FR-ENG-SUBREPO）
+
+| ID | 规则 |
+| :--- | :--- |
+| FR-ENG-SUBREPO-01 | 各子仓根目录满足 [subrepo-scaffold-spec.md](./subrepo-scaffold-spec.md) FR-SUB-01～09 |
+| FR-ENG-SUBREPO-02 | 新建子仓或 `init` 后运行 `node tooling/scripts/sync-subrepo-scaffold.mjs` |
+| FR-ENG-SUBREPO-03 | `README.md` 须可独立阅读（含 LICENSE 与快速开始） |
+
+---
+
+## 12. RFC / Changelog
 
 | 日期 | 版本 | 变更 |
 | :--- | :--- | :--- |
+| 2026-05-24 | 1.3.0 | Node.js 24 LTS（ADR-0005）
+| 2026-05-24 | 1.2.0 | 子仓脚手架完备性
 | 2026-05-24 | 1.1.0 | Zustand/BEM/UUIDv7/分层、Prompts、质量门禁引用 |
 | 2026-05-24 | 1.0.0 | Biome、EditorConfig、Commitlint、Cursor Rules、PR/开源惯例 |

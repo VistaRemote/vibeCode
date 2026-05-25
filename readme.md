@@ -8,9 +8,9 @@ Built with passion in China, designed for the global open-source community.
 
 VistaRemote is a VibeCode core project: **WebRTC** real-time remote desktop (vs. legacy DVR-style monitoring), **self-hostable AI** for recording and insights, and a **TypeScript + MySQL** stack for easier hiring, customization, and Docker deployment.
 
-**Why VistaRemote:** TypeScript-first, Spec-driven, **easy to customize** — best for teams that do **not** need billion-scale concurrency. [Positioning](https://github.com/VistaRemote/vista-remote/blob/main/docs/docs/en/architecture/positioning.mdx) · [Desktop performance](https://github.com/VistaRemote/vista-remote/blob/main/docs/docs/en/architecture/desktop-performance.mdx)
+**Why VistaRemote:** TypeScript-first, Spec-driven, **easy to customize** �?best for teams that do **not** need billion-scale concurrency. [Positioning](https://github.com/VistaRemote/vista-remote/blob/main/docs/docs/en/architecture/positioning.mdx) · [Desktop performance](https://github.com/VistaRemote/vista-remote/blob/main/docs/docs/en/architecture/desktop-performance.mdx)
 
-To ensure build stability across diverse environments (Node.js, React Native, Electron), this project adopts a **Multi-repo** architecture. This repository serves as the **Meta-Repo**, designed to help developers quickly initialize their environments, orchestrate the subprojects, and manage cross-repository local debugging.
+To ensure build stability across diverse environments (Node.js, React Native, Electron), this project adopts a **Multi-repo** architecture. Cross-platform UI is **React + RN** (not Flutter); native capture/encode uses **Rust** via N-API—see [ADR-0007](./adr/0007-no-flutter-cross-platform-ui.md). This repository serves as the **Meta-Repo**, designed to help developers quickly initialize their environments, orchestrate the subprojects, and manage cross-repository local debugging.
 
 ---
 
@@ -36,8 +36,8 @@ The VistaRemote ecosystem consists of 6 independent repositories:
 
 Ensure your local development environment has the following installed:
 - **Git**
-- **Node.js** (>= 18.x)
-- **pnpm** or **Bun** (Recommended package managers)
+- **Node.js** ≥ 24.0.0 (recommended **24.11 LTS**, see .nvmrc; required by Rspack/Rstest)
+- **pnpm** ≥ 9 (locked via packageManager)
 
 ### 2. One-Click Initialization
 
@@ -58,7 +58,7 @@ Each subproject (`server`, `desktop`, `shared`, etc.) has its own independent `.
 
 - **Commit Principle**: You must commit and push changes within the specific sub-directory.
 - **IDE Setup**: We strongly recommend using **Cursor / VS Code Multi-Root Workspaces** (via `.code-workspace`) or **IntelliJ Directory Mappings** to manage all Git repositories simultaneously in a unified UI.
-- For Git, IDE, and CI/CD releases, see the docs site (`cd docs && pnpm dev`) → **Engineering → CI/CD & Releases**, plus [Git Collaboration Spec](./spec/git-collaboration-spec.md) and [CI/CD Release Spec](./spec/cicd-release-spec.md).
+- For Git, IDE, and CI/CD releases, see the docs site (`cd docs && pnpm dev`) �?**Engineering �?CI/CD & Releases**, plus [Git Collaboration Spec](./spec/git-collaboration-spec.md) and [CI/CD Release Spec](./spec/cicd-release-spec.md).
 
 ---
 
@@ -68,12 +68,12 @@ This project follows **Spec-Driven Development (SDD)**:
 
 | Document | Description |
 | :--- | :--- |
-| **[DEVELOPMENT.md](./DEVELOPMENT.md)** | **Developer entry** — commands, Spec order |
+| **[DEVELOPMENT.md](./DEVELOPMENT.md)** | **Developer entry** �?commands, Spec order |
 | [Spec Index](./spec/README.md) | SDD workflow and per-module specs |
 | [SDD Spec](./spec/spec-driven-development-spec.md) | How to add FR-xxx and PR obligations |
 | [Implementation status](./spec/implementation-status.md) | What is ready vs stub (read before coding) |
 | [System Overview Spec](./spec/system-overview.md) | WebRTC P2P/SFU, signaling, security, milestones |
-| [Documentation site](./docs/) | Rspress — run `cd docs && pnpm dev` → Developer handbook & User guide |
+| [Documentation site](./docs/) | Rspress �?run `cd docs && pnpm dev` �?Developer handbook & User guide |
 | [Whitepaper](docs/README.md) | `/whitepaper/` on the doc site |
 | [Architecture](docs/README.md) | `/architecture/overview` on the doc site |
 
@@ -81,5 +81,5 @@ This project follows **Spec-Driven Development (SDD)**:
 
 - **Personal, non-commercial use**: free under [LICENSE](./LICENSE).
 - **Commercial use**: requires a [commercial license](./COMMERCIAL-LICENSE.md) (all commercial use is paid).
-- **Trial**: 14-day trial includes **WebRTC SFU** and **AI cloud fallback**; after trial, Pro/Enterprise required — see `spec/commercial-tier-spec.md`.
-- **Model fine-tuning**: closed-source, separate private repo — see `spec/ai-finetune-spec.md`.
+- **Trial**: 14-day trial includes **WebRTC SFU** and **AI cloud fallback**; after trial, Pro/Enterprise required �?see `spec/commercial-tier-spec.md`.
+- **Model fine-tuning**: closed-source, separate private repo �?see `spec/ai-finetune-spec.md`.

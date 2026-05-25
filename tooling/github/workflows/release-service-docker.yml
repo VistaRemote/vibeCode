@@ -1,4 +1,4 @@
-# Template â†’ server/.github/workflows/release.yml , ai/.github/workflows/release.yml
+# Template â†?server/.github/workflows/release.yml , ai/.github/workflows/release.yml
 name: Release Docker image
 
 on:
@@ -36,7 +36,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '22.12'
+          node-version: '24.11'
           registry-url: https://npm.pkg.github.com
           scope: '@vistaremote'
 
