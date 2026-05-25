@@ -20,7 +20,7 @@
 | **协作/迭代** | ✅ | ROADMAP、plan、ADR、prompts、quality-gates |
 | **插件体系** | 🟡 | Spec + shared Manifest；Host 加载 PLUGIN-α |
 | **Server 业务持久化** | 🟡 | 内存 store；TypeORM/MySQL 为 P1 |
-| **端到端远程闭环** | 🟡 | 信令/策略/播放骨架在；配对 API（码/链/QR）🟡；JWT P1 |
+| **端到端远程闭环** | 🟡 | **MVP-B**：配对→信令→WebRTC→控制通道已接线；见 `plan/mvp-e2e-runbook.md`；JWT P1 |
 | **Agent 三包体** | 🟡 | Spec+契约+构建脚本；electron-builder 分包 P1 |
 | **Admin 完整 CRUD** | 🟡 | 页面骨架 + Admin API 部分 |
 | **支付回调** | ⬜ | 订单内存 + simulate-paid；微信/支付宝 P1 |
@@ -74,7 +74,7 @@
 | 阶段 | 目标 | 解锁 |
 | :--- | :--- | :--- |
 | **MVP-A** | MySQL User/Session + JWT 登录 | 真实配对与鉴权 |
-| **MVP-B** | Client 配对页 + 1:1 视频 | US-01 端到端 |
+| **MVP-B** | Client 配对页 + 1:1 视频 + 控制 DC | US-01 端到端（跑通指南见 plan/mvp-e2e-runbook.md） |
 | **MVP-C** | BullMQ + ai summarize | US-07 部分 |
 | **MVP-D** | 录制 MinIO | Pro 套餐 |
 | **ENT-1** | 遥测入库 + 规则告警 | Enterprise |
