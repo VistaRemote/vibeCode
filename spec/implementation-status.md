@@ -20,8 +20,8 @@
 | **协作/迭代** | ✅ | ROADMAP、plan、ADR、prompts、quality-gates |
 | **插件体系** | 🟡 | Spec + shared Manifest；Host 加载 PLUGIN-α |
 | **Server 业务持久化** | 🟡 | 内存 store；TypeORM/MySQL 为 P1 |
-| **端到端远程闭环** | 🟡 | **MVP-B**：配对→信令→WebRTC→控制通道已接线；见 `plan/mvp-e2e-runbook.md`；JWT P1 |
-| **Agent 三包体** | 🟡 | Spec+契约+构建脚本；electron-builder 分包 P1 |
+| **端到端远程闭环** | 🟡 | **MVP-B**：见 [mvp-core-flow-spec.md](./mvp-core-flow-spec.md)、`plan/mvp-iteration-roadmap.md`；诊断 API + 重连 UI |
+| **Agent 三包体** | 🟡 | Agent/Viewer portable 已可打包；`file://` 资源路径与 `app.isPackaged` 已修复 |
 | **Admin 完整 CRUD** | 🟡 | 页面骨架 + Admin API 部分 |
 | **支付回调** | ⬜ | 订单内存 + simulate-paid；微信/支付宝 P1 |
 
@@ -37,7 +37,7 @@
 | **server** | 🟡 | 信令 WSS、SSE、ICE、SFU 调度、计费/权益、行为内存 | TypeORM、JWT 守卫、BullMQ 实连、审计表 |
 | **web/client** | 🟡 | Rsbuild、信令/SSE 客户端、WebRTC 播放、FeatureGate | 配对/会话 UI、登录 |
 | **web/admin** | 🟡 | 用户/订单/权限页骨架 | ProLayout 全模块、真实 API 鉴权 |
-| **desktop** | 🟡 | Electron、edge-ai、webrtc publisher、性能骨架 | MediaStream 实装、Agent Service、GPU 构建 |
+| **desktop** | 🟡 | Agent MVP+Viewer 打包、WebRTC 采集应答、配对 UI | 系统级键鼠注入、三包体签名分发 |
 | **mobile** | 🟡 | RN 骨架、peer-session、env | webrtc 完整 UI、配对 |
 | **ai** | 🟡 | Worker、LLM client、python-worker 占位 | LangChain、BullMQ、RAG |
 | **deploy** | ✅ | compose、mediasoup-controller、coturn profile | 生产 compose |
@@ -74,7 +74,7 @@
 | 阶段 | 目标 | 解锁 |
 | :--- | :--- | :--- |
 | **MVP-A** | MySQL User/Session + JWT 登录 | 真实配对与鉴权 |
-| **MVP-B** | Client 配对页 + 1:1 视频 + 控制 DC | US-01 端到端（跑通指南见 plan/mvp-e2e-runbook.md） |
+| **MVP-B** | Client 配对页 + 1:1 视频 + 控制 DC + 诊断/重试 | [mvp-core-flow-spec.md](./mvp-core-flow-spec.md) · plan/mvp-e2e-runbook.md |
 | **MVP-C** | BullMQ + ai summarize | US-07 部分 |
 | **MVP-D** | 录制 MinIO | Pro 套餐 |
 | **ENT-1** | 遥测入库 + 规则告警 | Enterprise |

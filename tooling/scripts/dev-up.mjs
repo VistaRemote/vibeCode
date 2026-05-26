@@ -86,6 +86,7 @@ function printNextSteps(root, env, skipDocker) {
 
 Start services (separate terminals):
 
+  pnpm dev:mvp          # server + web client（推荐）
   cd server && pnpm start:dev
   cd web && pnpm --filter @vistaremote/web-client dev
   cd web && pnpm --filter @vistaremote/web-admin dev

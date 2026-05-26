@@ -13,6 +13,8 @@
     "env:sit": "node tooling/scripts/apply-env.mjs sit",
     "env:uat": "node tooling/scripts/apply-env.mjs uat",
     "dev:up": "node tooling/scripts/dev-up.mjs",
+    "dev:mvp": "node tooling/scripts/dev-mvp.mjs",
+    "dev:mvp:desktop": "node tooling/scripts/dev-mvp.mjs --with-desktop",
     "dev:up:ai": "node tooling/scripts/dev-up.mjs --with-ai",
     "setup:repo": "node tooling/scripts/setup-single-repo.mjs",
     "plan:check": "node tooling/scripts/check-implementation-plan.mjs",
