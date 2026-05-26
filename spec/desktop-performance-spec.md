@@ -97,6 +97,8 @@
 | FR-DKT-R3-02 | 隐私遮罩区域（黑名单窗口） |
 | FR-DKT-R3-03 | 多 `displayIndex` 合成（Enterprise 多屏） |
 
+多屏产品阶段与 FR 见 [multi-display-spec.md](./multi-display-spec.md)、[plan/multi-display-iteration-roadmap.md](../plan/multi-display-iteration-roadmap.md)。
+
 ### 4.4 R4 键鼠 Hook 原生化
 
 | FR | 需求 |

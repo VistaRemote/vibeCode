@@ -15,6 +15,11 @@
 | **MVP-B.4** | Control | DataChannel 键鼠、相对坐标 | 🟡 进行中 |
 | **v0.2** | Resilience | WS 重连、ICE restart、错误分级 | ⬜ |
 | **v0.3** | Perf | BWE/ABR、backgroundThrottling、DPI 注入 | ⬜ |
+| **v0.4 MD-1** | Picker | 多屏用户：连接前选择显示器（向日葵式） | ⬜ |
+| **v0.5 MD-2** | Switch | 单屏热切换 + On-Demand 编码 | ⬜ |
+| **v0.6 MD-3** | Multi-Win | 多窗口 / 多路 Stream（TeamViewer 式） | ⬜ |
+
+> **多显示器专项**（捕获 / 编码 / 交互三层）：见 [multi-display-iteration-roadmap.md](./multi-display-iteration-roadmap.md) · [spec/multi-display-spec.md](../spec/multi-display-spec.md)
 
 ## MVP-B.0～B.4 任务板
 
@@ -46,6 +51,8 @@
 - [x] getDisplayMedia + addTrack
 - [x] video 元素播放
 - [ ] 首帧超时提示（本次）
+- [x] **单屏**：自动主屏（多屏用户仅主屏，见 multi-display-spec）
+- [ ] 诊断展示当前 `displayIndex`（可选）
 
 ### MVP-B.4 控制
 
@@ -70,6 +77,7 @@
 | 文档 | 路径 |
 | :--- | :--- |
 | Spec | `spec/mvp-core-flow-spec.md` |
+| 多屏 Spec / 路线图 | `spec/multi-display-spec.md` · `plan/multi-display-iteration-roadmap.md` |
 | 跑通指南 | `plan/mvp-e2e-runbook.md` |
 | 用户指南 | `docs/guide/mvp-getting-started.md` |
 | 实现矩阵 | `spec/implementation-status.md` |

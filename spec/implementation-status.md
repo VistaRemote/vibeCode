@@ -56,6 +56,7 @@
 | P2P 1:1 信令 | webrtc、messaging | 🟡 | 完善 join/auth、ICE 合并 |
 | SFU 多观众 | webrtc、commercial | 🟡 | mediasoup-client 接线、权益已接 |
 | 远程控制 DataChannel | shared control、desktop | 🟡 | Agent 注入控制通道 |
+| **多显示器** | multi-display-spec | 🟡 | MVP 单屏主显示器；选屏 MD-1、多流 MD-3 未开始 |
 | 套餐/试用/权益 | commercial、billing | 🟡 | 接 TypeORM、支付 webhook |
 | RBAC/ABAC | authorization | 🟡 | JWT 守卫、WSS ticket |
 | 录制回放 | recording | 🟡 | Spec+desktop 缓冲/upload 骨架；server API P1 |
@@ -78,6 +79,8 @@
 | **MVP-C** | BullMQ + ai summarize | US-07 部分 |
 | **MVP-D** | 录制 MinIO | Pro 套餐 |
 | **ENT-1** | 遥测入库 + 规则告警 | Enterprise |
+| **MD-1** | 多屏选屏（向日葵式） | MD-2 热切换 |
+| **MD-3** | 多窗口多路 Stream | SFU 或双 track P2P |
 
 ---
 
@@ -92,3 +95,4 @@
 | 日期 | 版本 | 变更 |
 | :--- | :--- | :--- |
 | 2026-05-24 | 1.0.0 | 初版矩阵 |
+| 2026-05-26 | 1.0.1 | 多显示器规划行（multi-display-spec） |
