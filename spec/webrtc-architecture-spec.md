@@ -154,9 +154,25 @@
 
 ---
 
-## 10. RFC / Changelog
+## 10. 多显示器与多路媒体
+
+1:1 MVP 为**单 video track**。多屏场景见 [multi-display-spec.md](./multi-display-spec.md)：
+
+| 模式 | 媒体形态 | 传输建议 |
+| :--- | :--- | :--- |
+| 单屏 / 选屏 | 1 track，切换时 `replaceTrack` | P2P |
+| 单屏热切换 On-Demand | 仍 1 track，编码器按 `activeDisplayId` 启停 | P2P |
+| 多窗口 | N track 或 N SFU producer | 2 屏 P2P；≥3 屏或监控墙 → SFU |
+| Dirty Rect / 区域编码 | 编码器输入为脏矩形列表（MD-4） | 与 BWE 共用 |
+
+控制面：`ControlEnvelope` 携带 `displayId`（MD-1+），与画面 track 的 `streamId`/`displayId` 对齐。
+
+---
+
+## 11. RFC / Changelog
 
 | 日期 | 版本 | 变更 |
 | :--- | :--- | :--- |
 | 2026-05-24 | 1.0.0 | P2P 默认；mediasoup SFU；TURN 负载切换；WebCodecs/抖动；明确不用 SRS |
 | 2026-05-24 | 1.1.0 | WS 信令 + SSE 通知；decode Worker；链接 messaging-transport-spec |
+| 2026-05-26 | 1.2.1 | §10 多显示器与 multi-display-spec 交叉引用 |

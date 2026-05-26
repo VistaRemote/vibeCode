@@ -79,7 +79,8 @@
 
 | ID | 需求 | MVP 实现 | 验收标准 | 测试 |
 | :--- | :--- | :--- | :--- | :--- |
-| FR-MVP-M01 | 桌面采集 | Electron `setDisplayMediaRequestHandler` | Agent 非 capturing 卡死 | 选屏成功 |
+| FR-MVP-M01 | 桌面采集（**单屏**） | Electron `setDisplayMediaRequestHandler`，默认主屏 | Agent 非 capturing 卡死；双屏仅主屏 | 选屏成功 |
+| FR-MVP-M01a | 多屏选屏 / 多路流 | **非 MVP**；见 [multi-display-spec.md](./multi-display-spec.md) MD-1+ | — | 后续 |
 | FR-MVP-M02 | 控制端渲染 | `<video>` + `srcObject` | `streaming` 且有画面 | 目视 |
 | FR-MVP-M03 | 控制事件 | DC `mouse-move` 等 | Agent 显示「最近控制」 | 移动鼠标 |
 | FR-MVP-M04 | 相对坐标 | payload `x/y` 0..1 | 日志见小数 | 单测 schema |

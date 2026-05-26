@@ -77,6 +77,19 @@
 | DPI 物理像素换算 | C++/Rust 插件 | v0.3 |
 | 键鼠注入 Daemon | 高优先级子进程 | v0.3 |
 
+### L4.5 多显示器（v0.4 MD 系列）
+
+> 详规：[spec/multi-display-spec.md](./spec/multi-display-spec.md) · 迭代：[plan/multi-display-iteration-roadmap.md](./plan/multi-display-iteration-roadmap.md)
+
+| 能力 | 说明 | 版本 |
+| :--- | :--- | :--- |
+| **单屏默认** | 主显示器自动采集；单 track | **MVP-B**（当前） |
+| **选屏 Picker** | 连接前用户选择要控制的屏（向日葵） | MD-1 / v0.4 |
+| **单屏热切换** | On-Demand：仅编码当前观看屏 | MD-2 / v0.5 |
+| **多窗口多流** | 每屏独立 Stream；`displayId` 映射点击 | MD-3 / v0.6 |
+| **原生 + Dirty Rect** | 每屏采集线程；差分编码；热插拔 | MD-4 + R1 |
+| **监控墙** | Admin 1–4 路缩略（SFU） | ENT / FR-ENT-20 |
+
 ### L5 控制传输优化（v0.2–v0.3）
 
 | 能力 | 说明 | 版本 |
@@ -108,6 +121,7 @@
 | 不做什么 | 原因 |
 | :--- | :--- |
 | SFU 多观众、服务端录制 | MVP-B 后 |
+| 多屏并行编码 / TeamViewer 多窗 | MD-1 前（MVP 仅单屏） |
 | 系统级 SendInput | v0.3 |
 | 生产支付 | M4 前 |
 
@@ -116,5 +130,7 @@
 ## 相关文档
 
 - [spec/mvp-core-flow-spec.md](./spec/mvp-core-flow-spec.md)
+- [spec/multi-display-spec.md](./spec/multi-display-spec.md)
+- [plan/multi-display-iteration-roadmap.md](./plan/multi-display-iteration-roadmap.md)
 - [spec/implementation-status.md](./spec/implementation-status.md)
 - [docs/guide/mvp-getting-started.md](./docs/guide/mvp-getting-started.md)

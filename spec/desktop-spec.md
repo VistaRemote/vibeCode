@@ -87,12 +87,24 @@ desktop/
 
 ## 4. 屏幕采集
 
+> **多显示器分阶段**：MVP 仅单屏主显示器；选屏 / 热切换 / 多路流见 [multi-display-spec.md](./multi-display-spec.md) 与 [plan/multi-display-iteration-roadmap.md](../plan/multi-display-iteration-roadmap.md)。
+
+| 阶段 | 能力 | 版本 |
+| :--- | :--- | :--- |
+| **单屏** | 自动主屏，1 路 track | MVP-B |
+| **选屏** | 用户连接前选择显示器（向日葵式） | MD-1 / v0.4 |
+| **切换** | 会话中换屏，On-Demand 编码 | MD-2 / v0.5 |
+| **多窗** | 每屏独立 Stream + `displayId` 控制 | MD-3 / v0.6 |
+| **原生** | 每屏采集线程、Dirty Rect、热插拔 | MD-4 + R1 |
+
 | ID | 需求 | 验收标准 |
 | :--- | :--- | :--- |
-| FR-DKT-01 | 枚举所有显示器，默认主屏 | UI 可切换 `displayIndex` |
+| FR-DKT-01 | 枚举所有显示器，**MVP 默认主屏**；MD-1+ UI 可切换 `displayId` | MVP：主屏出画；MD-1：选屏正确 |
 | FR-DKT-02 | 使用 `desktopCapturer` + `getUserMedia` 或等价原生路径 | 1080p@30fps 可达（硬件允许） |
 | FR-DKT-03 | 分辨率/帧率随网络降级（配合 WebRTC stats） | 带宽下降时自动降档 |
 | FR-DKT-04 | 采集前须用户授权（系统权限 + 应用内确认） | macOS 屏幕录制权限流程文档化 |
+| FR-DKT-01b | 多屏 On-Demand / 多路编码 | 见 FR-MDISP-E02/E03 | MD-2+ |
+| FR-DKT-01c | 每物理屏独立采集上下文；显示器断开释放 | 见 FR-MDISP-C02/C03 | MD-4 / R1 |
 
 ---
 

@@ -45,6 +45,8 @@
 | FR-WCL-14 | 业务通知 **SSE**（`EventStreamClient`），与信令分离 | |
 | FR-WCL-15 | 登录后 Controller JWT；信令前换取 **Signaling Ticket** | [authorization-spec](./authorization-spec.md) |
 | FR-WCL-16 | UI/能力按 `orgRole` + Plan 隐藏（如录制、多屏监控） | `shared` Permission |
+| FR-WCL-17 | **多屏（MD-1+）**：`displays.length>1` 时展示选屏；工具栏切换 `activeDisplayId` | [multi-display-spec](./multi-display-spec.md) |
+| FR-WCL-18 | **多窗口（MD-3）**：每 `displayId` 独立播放窗口；指针事件带 `displayId` | 同上 |
 | FR-WCL-15 | 解码优先 **decode.worker** + `DecodeWorkerBridge` | 主线程仅上屏 |
 | FR-WCL-08 | 响应式：最小宽度 1024px 为 P0；窄屏只读提示（P1） | |
 | FR-WCL-09 | Pro：我的录制列表与回放播放器 | `plan=pro` |

@@ -16,6 +16,7 @@
 | [team-collaboration-spec.md](./team-collaboration-spec.md) | 团队上下文指引与同步节奏 |
 | [implementation-status.md](./implementation-status.md) | **实现 vs Spec** 矩阵（开发前查） |
 | [mvp-core-flow-spec.md](./mvp-core-flow-spec.md) | **MVP 核心链路** FR/验收/测试 |
+| [multi-display-spec.md](./multi-display-spec.md) | **多显示器**：单屏→选屏→多流；捕获/编码/交互三层 |
 | [architecture-foundation-spec.md](./architecture-foundation-spec.md) | 基础架构 F-01～F-13 就绪清单 |
 | [quality-gates-spec.md](./quality-gates-spec.md) | CI、AI Code Review、Branch Protection |
 | [plugin-architecture-spec.md](./plugin-architecture-spec.md) | 核心 + 插件生态 |
@@ -51,7 +52,7 @@
 | web | [web-spec.md](./web-spec.md) | `web/spec/` |
 | web 用户端 | [web-client-spec.md](./web-client-spec.md) | `web/spec/client-spec.md` |
 | web 管理台 | [web-admin-spec.md](./web-admin-spec.md) | `web/spec/admin-spec.md` |
-| desktop | [desktop-spec.md](./desktop-spec.md) | `desktop/spec/` |
+| desktop | [desktop-spec.md](./desktop-spec.md) · [multi-display-spec.md](./multi-display-spec.md) | `desktop/spec/` |
 | mobile | [mobile-spec.md](./mobile-spec.md) | `mobile/spec/` |
 | docs | [docs-spec.md](./docs-spec.md) | `docs/spec/` |
 | deploy | [deploy-spec.md](./deploy-spec.md) | `deploy/spec/` |
