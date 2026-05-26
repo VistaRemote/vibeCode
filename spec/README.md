@@ -15,6 +15,7 @@
 | [release-planning-spec.md](./release-planning-spec.md) | ROADMAP、迭代 plan、自检、技术债务 |
 | [team-collaboration-spec.md](./team-collaboration-spec.md) | 团队上下文指引与同步节奏 |
 | [implementation-status.md](./implementation-status.md) | **实现 vs Spec** 矩阵（开发前查） |
+| [mvp-core-flow-spec.md](./mvp-core-flow-spec.md) | **MVP 核心链路** FR/验收/测试 |
 | [architecture-foundation-spec.md](./architecture-foundation-spec.md) | 基础架构 F-01～F-13 就绪清单 |
 | [quality-gates-spec.md](./quality-gates-spec.md) | CI、AI Code Review、Branch Protection |
 | [plugin-architecture-spec.md](./plugin-architecture-spec.md) | 核心 + 插件生态 |
