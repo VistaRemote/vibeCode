@@ -9,6 +9,7 @@ import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { execSync, spawnSync } from 'node:child_process';
 import { findMetaRoot } from './lib/paths.mjs';
+import { loadMetaManifest } from './lib/meta-manifest.mjs';
 
 const metaRoot = findMetaRoot();
 if (!metaRoot) {
@@ -45,8 +46,12 @@ if (!skipDocker) {
   }
 }
 
-const installOrder = ['shared', 'server', 'web', 'ai', 'desktop', 'mobile'];
-for (const dir of installOrder) {
+const manifest = loadMetaManifest(metaRoot);
+const installOrder = manifest.devUpInstallOrder.filter(
+  (k) => manifest.projects[k]?.path,
+);
+for (const key of installOrder) {
+  const dir = manifest.projects[key].path;
   const p = join(metaRoot, dir);
   if (!existsSync(join(p, 'package.json'))) {
     console.log(`⏭️  skip ${dir} (not cloned — run ./init.sh)`);

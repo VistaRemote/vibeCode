@@ -18,6 +18,7 @@
 | [mvp-core-flow-spec.md](./mvp-core-flow-spec.md) | **MVP 核心链路** FR/验收/测试 |
 | [multi-display-spec.md](./multi-display-spec.md) | **多显示器**：单屏→选屏→多流；捕获/编码/交互三层 |
 | [architecture-foundation-spec.md](./architecture-foundation-spec.md) | 基础架构 F-01～F-13 就绪清单 |
+| [meta-repo-development-spec.md](./meta-repo-development-spec.md) | Meta-Repo、`.meta/manifest.json`、子仓独立开发 |
 | [quality-gates-spec.md](./quality-gates-spec.md) | CI、AI Code Review、Branch Protection |
 | [plugin-architecture-spec.md](./plugin-architecture-spec.md) | 核心 + 插件生态 |
 | [DEVELOPMENT.md](../DEVELOPMENT.md) | 人类开发者入口 |

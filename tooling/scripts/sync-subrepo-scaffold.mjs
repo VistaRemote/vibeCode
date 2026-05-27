@@ -7,31 +7,18 @@ import { copyFileSync, existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import { loadMetaManifest } from './lib/meta-manifest.mjs';
+
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, '../..');
 const force = process.argv.includes('--force');
 
-const REPOS = [
-  'shared',
-  'server',
-  'web',
-  'desktop',
-  'mobile',
-  'ai',
-  'docs',
-  'deploy',
-];
+const manifest = loadMetaManifest(root);
+const REPOS = manifest.installOrder.filter((k) => manifest.projects[k]);
 
-const SCOPE = {
-  shared: '协议类型、Zod Schema、错误码、计费与插件 Manifest 契约。',
-  server: 'NestJS 信令、REST API、Admin、计费与配对服务。',
-  web: 'Rsbuild Web 用户端与管理台（React + antd）。',
-  desktop: 'Electron Agent：采集、编码、录制缓冲、本地 AI 钩子。',
-  mobile: 'React Native 移动端主控与 WebRTC 客户端。',
-  ai: 'BullMQ AI Worker、LLM 客户端、python-worker 编排。',
-  docs: 'Rspress 文档站（用户指南与开发者手册）。',
-  deploy: 'Docker Compose、mediasoup-controller、coturn 部署清单。',
-};
+function scopeFor(repo) {
+  return manifest.projects[repo]?.description ?? '';
+}
 
 function syncFile(repo, name, src) {
   const dest = resolve(root, repo, name);
@@ -48,7 +35,7 @@ for (const repo of REPOS) {
   const secTpl = readFileSync(
     resolve(root, 'tooling/templates/subrepo/SECURITY.md'),
     'utf8',
-  ).replace('<!-- REPO_SCOPE -->', SCOPE[repo] ?? '');
+  ).replace('<!-- REPO_SCOPE -->', scopeFor(repo) || repo);
   const secPath = resolve(root, repo, 'SECURITY.md');
   if (!existsSync(secPath) || force) {
     writeFileSync(secPath, secTpl);

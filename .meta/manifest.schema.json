@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://vistaremote.dev/.meta/manifest.schema.json",
+  "title": "VistaRemote Meta-Repo Manifest",
+  "type": "object",
+  "required": ["version", "installOrder", "projects"],
+  "properties": {
+    "version": { "type": "integer", "minimum": 1 },
+    "installOrder": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "devUpInstallOrder": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "projects": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["path", "remote"],
+        "properties": {
+          "path": { "type": "string" },
+          "remote": { "type": "string" },
+          "remoteHttps": { "type": "string" },
+          "required": { "type": "boolean" },
+          "description": { "type": "string" }
+        }
+      }
+    }
+  }
+}

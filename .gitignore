@@ -1,4 +1,4 @@
-# Meta-Repo：不跟踪已克隆的子仓库目录（各自独立 Git）
+# Meta-Repo：子仓库路径见 .meta/manifest.json（各自独立 Git，不纳入 Meta 提交）
 /server/
 /desktop/
 /mobile/

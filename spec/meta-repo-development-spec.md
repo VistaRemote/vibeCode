@@ -3,7 +3,7 @@
 | Metadata | Value |
 | :--- | :--- |
 | **文档 ID** | `SPEC-META-DEV-001` |
-| **版本** | 1.0.0 |
+| **版本** | 1.1.0 |
 | **关联** | [engineering-standards-spec.md](./engineering-standards-spec.md) |
 
 ---
@@ -12,17 +12,55 @@
 
 | 问题 | 答案 |
 | :--- | :--- |
+| 需要 `.meta` 目录吗？ | **需要**。配置在 **`.meta/manifest.json`**（子仓 URL、路径、安装顺序）；见 `.meta/README.md` |
+| 与 npm 的 `meta` CLI 一样吗？ | **不必相同**。本仓用 `init.sh` / `init-repos.mjs` 读 manifest；可选用第三方 `meta` 工具，但非必须 |
 | web / mobile 如何单独开发？ | 进入 **各自 Git 仓库目录**，独立 `pnpm install` / `pnpm dev`，在 **该仓库** 提交与开 PR |
 | 如何单独发布？ | **每个子仓库独立版本与流水线**（npm 包、Docker 镜像、静态站、安装包），无「整个 Meta-Repo 打一个包」 |
 | 每个子项目都要 `biome.json` 吗？ | **是**。每个含 TS/JS 的仓库根目录要有，且 **在仓库内** 跑 `pnpm lint` |
 | Meta-Repo 根要 `biome.json` 吗？ | **要，但只管脚手架**（`tooling/`、`.github/`、`package.json` 等），**不**替代子仓库检查 |
 | 前后端风格差异？ | **共享基线** `tooling/biome.json` + **端专属** `biome.server.json` / `biome.web.json` / `biome.mobile.json` |
 
+### 1.1 `.meta/` 目录结构
+
+```text
+.meta/
+├── README.md           # 说明与常用命令
+├── config.json         # 组织、默认分支、Meta 仓远程
+├── manifest.json       # 子仓库 SSOT（path、remote、required、installOrder）
+└── manifest.schema.json
+```
+
+| 文件 | 维护者修改场景 |
+| :--- | :--- |
+| `manifest.json` | 新增/下线子仓、调整 `installOrder`、改 GitHub 远程 URL |
+| `config.json` | 组织改名、默认分支从 `main` 变更 |
+
+**初始化子仓**（首次克隆 Meta-Repo 后）：
+
+```bash
+./init.sh                 # Windows: .\init.ps1
+# 或
+pnpm run init:repos
+node tooling/scripts/init-repos.mjs --only shared,server,web
+```
+
+脚本实现：`tooling/scripts/init-repos.mjs`（读取 manifest，**不使用** git submodule）。
+
+---
+
+## 1.2 为什么没有仓库根目录的 `.meta` **文件**？
+
+部分工具（如 [mateodelnorte/meta](https://github.com/mateodelnorte/meta)）在根目录使用 **单个 `.meta` JSON 文件**。VistaRemote 选用 **`.meta/` 目录**，以便：
+
+- 分离 `manifest`（子仓列表）与 `config`（默认值）
+- 附带 JSON Schema 与 README，便于 SDD 与 Code Review
+- 避免与「仅一个 `.meta` 文件」的工具链混淆；需要时可从 `manifest.json` 手工导出为第三方格式
+
 ---
 
 ## 2. 为什么 Meta-Repo 根 `pnpm check` 扫不到 web/mobile？
 
-Meta-Repo `.gitignore` 忽略了 `/web/`、`/server/` 等（它们是 **独立 Git 仓库**）。
+Meta-Repo `.gitignore` 忽略了 `/web/`、`/server/` 等（见 `.meta/manifest.json` 中的 `path`，它们是 **独立 Git 仓库**）。
 
 Biome 开启 `vcs.useIgnoreFile` 后，在根目录执行 `pnpm check` **不会**检查已 clone 的子目录代码。
 
@@ -251,3 +289,4 @@ Meta-Repo CI **仅** 脚手架 `biome check` + audit，不替代子仓。
 | 日期 | 版本 | 变更 |
 | :--- | :--- | :--- |
 | 2026-05-24 | 1.0.0 | 独立开发/发布说明；Biome 分层 |
+| 2026-05-26 | 1.1.0 | `.meta/manifest.json` SSOT；`init.sh` / `init-repos.mjs` |

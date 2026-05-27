@@ -18,7 +18,9 @@
     "dev:up:ai": "node tooling/scripts/dev-up.mjs --with-ai",
     "setup:repo": "node tooling/scripts/setup-single-repo.mjs",
     "plan:check": "node tooling/scripts/check-implementation-plan.mjs",
-    "setup:subrepo-docs": "node tooling/scripts/sync-subrepo-scaffold.mjs"
+    "setup:subrepo-docs": "node tooling/scripts/sync-subrepo-scaffold.mjs",
+    "init:repos": "node tooling/scripts/init-repos.mjs",
+    "init:repos:required": "node tooling/scripts/init-repos.mjs --required-only"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.0.6",
