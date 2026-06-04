@@ -30,7 +30,7 @@
 
 | 项 | 现状 | 缺口 |
 | :--- | :--- | :--- |
-| 采集 | Electron `setDisplayMediaRequestHandler` **自动选第一块屏** | 无枚举 UI、无 `displayId` 绑定 |
+| 采集 | Electron 选屏 + MD-2 `replaceTrack` 热切换 | MD-3 多路并行采集待做 |
 | 信令/WebRTC | 单路 `video` track，1:1 P2P | 无 `streamId` / 多 track 协商 |
 | 控制 | `NormalizedPoint` 含 `displayIndex`，MVP 多为 `0` | 无按屏映射、无多窗口命中测试 |
 | 企业 | Admin 多屏网格 Spec（SFU） | 未实现 |

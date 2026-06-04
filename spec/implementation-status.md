@@ -20,7 +20,7 @@
 | **协作/迭代** | ✅ | ROADMAP、plan、ADR、prompts、quality-gates |
 | **插件体系** | 🟡 | Spec + shared Manifest；Host 加载 PLUGIN-α |
 | **Server 业务持久化** | 🟡 | 内存 store；TypeORM/MySQL 为 P1 |
-| **端到端远程闭环** | 🟡 | **MVP-B**：见 [mvp-core-flow-spec.md](./mvp-core-flow-spec.md)、`plan/mvp-iteration-roadmap.md`；诊断 API + 重连 UI |
+| **端到端远程闭环** | 🟡 | **MVP-B** `20260604-b10`：MD-2 热切换、多屏选屏、v0.2 韧性；见 multi-display-spec |
 | **Agent 三包体** | 🟡 | Agent/Viewer portable 已可打包；`file://` 资源路径与 `app.isPackaged` 已修复 |
 | **Admin 完整 CRUD** | 🟡 | 页面骨架 + Admin API 部分 |
 | **支付回调** | ⬜ | 订单内存 + simulate-paid；微信/支付宝 P1 |
@@ -55,7 +55,7 @@
 | 全项目性能路线图 | performance-roadmap | ✅ | Spec only；不对外 docs |
 | P2P 1:1 信令 | webrtc、messaging | 🟡 | 完善 join/auth、ICE 合并 |
 | SFU 多观众 | webrtc、commercial | 🟡 | mediasoup-client 接线、权益已接 |
-| 远程控制 DataChannel | shared control、desktop | 🟡 | Agent 注入控制通道 |
+| 远程控制 DataChannel | shared control、desktop | 🟡 | DC + Win32 注入（b7）；Daemon 完整注入 v0.3 |
 | **多显示器** | multi-display-spec | 🟡 | MVP 单屏主显示器；选屏 MD-1、多流 MD-3 未开始 |
 | 套餐/试用/权益 | commercial、billing | 🟡 | 接 TypeORM、支付 webhook |
 | RBAC/ABAC | authorization | 🟡 | JWT 守卫、WSS ticket |
@@ -79,7 +79,8 @@
 | **MVP-C** | BullMQ + ai summarize | US-07 部分 |
 | **MVP-D** | 录制 MinIO | Pro 套餐 |
 | **ENT-1** | 遥测入库 + 规则告警 | Enterprise |
-| **MD-1** | 多屏选屏（向日葵式） | MD-2 热切换 |
+| **MD-1** | 多屏选屏（向日葵式） | 🟢 `b9` |
+| **MD-2** | 会话内热切换 + On-Demand 单路 | 🟢 `b10` |
 | **MD-3** | 多窗口多路 Stream | SFU 或双 track P2P |
 
 ---

@@ -32,6 +32,8 @@
 
 **AI 协作者**：读 [AGENTS.md](../AGENTS.md) + [prompts/README.md](../prompts/README.md)，禁止自由编造 Prompt。
 
+**Cursor Skills（项目级）**：[.cursor/skills/vista-remote-team/SKILL.md](../.cursor/skills/vista-remote-team/SKILL.md) — 多仓协作、SDD、MVP 验收流程（团队共享）。
+
 ---
 
 ## 3. 团队状态同步节奏
@@ -92,3 +94,4 @@
 | 日期 | 版本 | 变更 |
 | :--- | :--- | :--- |
 | 2026-05-24 | 1.0.0 | 初版上下文指引与同步节奏 |
+| 2026-05-26 | 1.0.1 | 登记 Cursor Skill `vista-remote-team` |

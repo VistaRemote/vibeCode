@@ -15,7 +15,7 @@ MVP-B（单屏闭环） → MD-1（向日葵式选屏） → MD-2（单屏热切
 | :--- | :--- | :--- | :--- | :--- |
 | **MVP-B.3** | Single | 单显示器用户：默认主屏，1 路视频 + 控制 | 当前 Electron 采集 | 🟡 进行中 |
 | **v0.4 / MD-1** | Picker | 多屏用户：连接前选择要控制的显示器 | `desktopCapturer` 枚举 | ⬜ |
-| **v0.5 / MD-2** | Switch | 会话中切换显示器；未观看屏暂停编码 | MD-1 + 信令 | ⬜ |
+| **v0.5 / MD-2** | Switch | 会话中切换显示器；On-Demand 单路采集 | MD-1 + 信令 | 🟢 `b10` |
 | **v0.6 / MD-3** | Multi-Win | 多窗口各绑一块屏；多路 Stream 并行 | MD-2 + 可选 SFU | ⬜ |
 | **v0.7 / MD-4** | Capture+ | 每屏独立采集线程；Dirty Rect；热插拔 | desktop-performance R1 | ⬜ |
 | **ENT-1** | Grid | Admin 1–4 路缩略监控 | mediasoup + MD-4 缩略 | ⬜ |

@@ -20,7 +20,7 @@
 | 里程碑 | 目标 | 状态 | 关键验收 |
 | :--- | :--- | :--- | :--- |
 | **M0** | Spec / 工具链 / 契约 | 🟢 | `pnpm setup`、`dev-mvp.ps1` |
-| **M2 MVP-B** | **1:1 本机/LAN 闭环** | 🟡 | Agent `sent-offer`、Web `streaming`、DC 控制日志 |
+| **M2 MVP-B** | **1:1 本机/LAN 闭环** | 🟡 | `20260604-b10`：MD-2 热切换、多屏、Win 控制 |
 | **M1 MVP-A** | MySQL + JWT + 真实鉴权 | ⬜ | 配对票、审计 |
 | **M3 MVP-C** | BullMQ + AI 摘要 | ⬜ | 队列任务可追踪 |
 | **M4 MVP-D** | 录制 + MinIO | ⬜ | Pro 套餐 |

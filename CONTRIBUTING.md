@@ -17,6 +17,7 @@
 | [Spec 索引](./spec/README.md) | 实现前必读 |
 | [文档站](./docs/README.md) | Rspress：`cd docs && pnpm dev` |
 | [AGENTS.md](./AGENTS.md) | AI 协作者约定 |
+| [.cursor/skills/](./.cursor/skills/README.md) | **Cursor Skills**（团队协作流程） |
 | [ROADMAP.md](./ROADMAP.md) | 里程碑与当前冲刺 |
 | [CHANGELOG.md](./CHANGELOG.md) | 版本变更记录 |
 | [plan/implementation-plan.md](./plan/implementation-plan.md) | 当前迭代契约与自检 |

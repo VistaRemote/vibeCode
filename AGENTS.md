@@ -46,6 +46,14 @@
 - 给出建议验收步骤
 - 若仅为桩/演示，明确标注，勿写成生产就绪
 
+## Cursor Skills（团队协作）
+
+| Skill | 说明 |
+| :--- | :--- |
+| [vista-remote-team](.cursor/skills/vista-remote-team/SKILL.md) | Meta-Repo 多仓提交、SDD/FR、跨仓 PR 顺序、MVP 验收、硬约束 |
+
+索引：[.cursor/skills/README.md](./.cursor/skills/README.md)
+
 ## Cursor Rules
 
 详见 [.cursor/rules/](./.cursor/rules/)。

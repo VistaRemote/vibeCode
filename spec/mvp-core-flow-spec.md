@@ -80,10 +80,11 @@
 | ID | 需求 | MVP 实现 | 验收标准 | 测试 |
 | :--- | :--- | :--- | :--- | :--- |
 | FR-MVP-M01 | 桌面采集（**单屏**） | Electron `setDisplayMediaRequestHandler`，默认主屏 | Agent 非 capturing 卡死；双屏仅主屏 | 选屏成功 |
-| FR-MVP-M01a | 多屏选屏 / 多路流 | **非 MVP**；见 [multi-display-spec.md](./multi-display-spec.md) MD-1+ | — | 后续 |
+| FR-MVP-M01a | 多屏选屏（轻量） | Agent 多显示器时 UI 选择 `sourceId` | 双屏选副屏出画 | 手工 |
+| FR-MVP-M01b | 多屏热切换（单路 On-Demand） | MD-2 `b10`：信令切屏 + replaceTrack | 双屏会话中切换可见画面 | 🟢 |
 | FR-MVP-M02 | 控制端渲染 | `<video>` + `srcObject` | `streaming` 且有画面 | 目视 |
-| FR-MVP-M03 | 控制事件 | DC `mouse-move` 等 | Agent 显示「最近控制」 | 移动鼠标 |
-| FR-MVP-M04 | 相对坐标 | payload `x/y` 0..1 | 日志见小数 | 单测 schema |
+| FR-MVP-M03 | 控制事件 | DC `mouse-move` / `wheel` / `key-*` | Agent 显示「最近控制」；Win b7+ 主屏注入 | 移动/点击/滚轮 |
+| FR-MVP-M04 | 相对坐标 | payload `x/y` 0..1；可选 `code`、`deltaY` | 日志见小数 | 单测 schema |
 | FR-MVP-M05 | DPI 物理像素注入 | v0.3 C++ 插件 | — | 后续 |
 | FR-MVP-M06 | backgroundThrottling 关闭 | v0.3 `backgroundThrottling:false` | — | 后续 |
 | FR-MVP-M07 | ABR/BWE | v0.3 编码降级 | — | 后续 |
@@ -95,7 +96,7 @@
 | FR-MVP-O01 | 分级错误文案 | 信令/ICE/WebRTC 分 tag 展示 | 用户可见原因 |
 | FR-MVP-O02 | 一键重试 | 会话页「重新连接」 | 点击后重走 join+offer |
 | FR-MVP-O03 | dev-mvp 自检 | 脚本末尾 E2E | `OK: signaling e2e passed` |
-| FR-MVP-O04 | 自动恢复 | v0.2 | 断网重连策略 |
+| FR-MVP-O04 | 自动恢复 | v0.2 `b9`：WS/ICE 自动重试 + 分级文案 | 断网 30s 内可恢复或提示重连 |
 
 ---
 
