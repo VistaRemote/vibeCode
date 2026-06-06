@@ -42,7 +42,8 @@
       "unsafeParameterDecoratorsEnabled": true
     },
     "formatter": {
-      "quoteStyle": "single",
+      "quoteStyle": "double",
+      "jsxQuoteStyle": "double",
       "semicolons": "always",
       "trailingCommas": "all",
       "arrowParentheses": "always"

@@ -41,6 +41,7 @@
   "javascript": {
     "formatter": {
       "quoteStyle": "double",
+      "jsxQuoteStyle": "double",
       "semicolons": "always",
       "trailingCommas": "all",
       "arrowParentheses": "always"
