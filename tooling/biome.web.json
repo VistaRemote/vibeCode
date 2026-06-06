@@ -1,6 +1,6 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.4.15/schema.json",
-  "extends": ["./biome.json"],
+  "$schema": "https://biomejs.dev/schemas/2.4.16/schema.json",
+  "extends": ["./biome.frontend.json"],
   "files": {
     "includes": [
       "**",
@@ -13,15 +13,7 @@
     ]
   },
   "javascript": {
-    "jsxRuntime": "reactClassic",
-    "formatter": {
-      "quoteStyle": "single"
-    }
-  },
-  "css": {
-    "parser": {
-      "cssModules": true
-    }
+    "jsxRuntime": "reactClassic"
   },
   "overrides": [
     {

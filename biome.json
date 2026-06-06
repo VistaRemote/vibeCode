@@ -1,17 +1,4 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.4.15/schema.json",
-  "extends": ["./tooling/biome.json"],
-  "files": {
-    "includes": [
-      "**",
-      "!web",
-      "!server",
-      "!mobile",
-      "!desktop",
-      "!shared",
-      "!docs",
-      "!deploy",
-      "!ai"
-    ]
-  }
+  "$schema": "https://biomejs.dev/schemas/2.4.16/schema.json",
+  "extends": ["./tooling/biome.base.json"]
 }
