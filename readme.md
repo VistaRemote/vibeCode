@@ -8,7 +8,7 @@ Built with passion in China, designed for the global open-source community.
 
 VistaRemote is a VibeCode core project: **WebRTC** real-time remote desktop (vs. legacy DVR-style monitoring), **self-hostable AI** for recording and insights, and a **TypeScript + MySQL** stack for easier hiring, customization, and Docker deployment.
 
-> **LuminaryWorks AI 生态**：[github.com/LuminaryWorks](https://github.com/LuminaryWorks) — 本产品在生态中担任 **远程运维与现场触达**。详见 [docs/luminaryworks-ecosystem.md](./docs/luminaryworks-ecosystem.md)。
+> **LuminaryWorks AI 生态**：[github.com/LuminaryWorks](https://github.com/LuminaryWorks) — 本产品在生态中担任 **远程运维与现场触达**。详见 [spec/luminaryworks-ecosystem.md](./spec/luminaryworks-ecosystem.md)。
 
 **Why VistaRemote:** TypeScript-first, Spec-driven, **easy to customize** �?best for teams that do **not** need billion-scale concurrency. [Positioning](https://github.com/VistaRemote/vista-remote/blob/main/docs/docs/en/architecture/positioning.mdx) · [Desktop performance](https://github.com/VistaRemote/vista-remote/blob/main/docs/docs/en/architecture/desktop-performance.mdx)
 

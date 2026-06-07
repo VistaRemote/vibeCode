@@ -19,10 +19,12 @@
 | [multi-display-spec.md](./multi-display-spec.md) | **多显示器**：单屏→选屏→多流；捕获/编码/交互三层 |
 | [architecture-foundation-spec.md](./architecture-foundation-spec.md) | 基础架构 F-01～F-13 就绪清单 |
 | [meta-repo-development-spec.md](./meta-repo-development-spec.md) | Meta-Repo、`.meta/manifest.json`、子仓独立开发 |
+| [luminaryworks-ecosystem.md](./luminaryworks-ecosystem.md) | **LuminaryWorks 五产品生态角色** |
 | [quality-gates-spec.md](./quality-gates-spec.md) | CI、AI Code Review、Branch Protection |
 | [plugin-architecture-spec.md](./plugin-architecture-spec.md) | 核心 + 插件生态 |
 | [DEVELOPMENT.md](../DEVELOPMENT.md) | 人类开发者入口 |
 | [ROADMAP.md](../ROADMAP.md) · [plan/implementation-plan.md](../plan/implementation-plan.md) | 里程碑与当前迭代 |
+| [plan/admin-platform-roadmap.md](../plan/admin-platform-roadmap.md) | **后台管理** ADM-0～5（权限/用户/录制） |
 | [adr/README.md](../adr/README.md) | 架构决策记录 ADR |
 | [prompts/README.md](../prompts/README.md) | 版本化 AI Prompt |
 
