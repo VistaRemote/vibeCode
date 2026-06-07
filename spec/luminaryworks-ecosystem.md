@@ -31,6 +31,7 @@ VistaRemote 可**单独交付**：企业远程运维、录制审计、自托管 
 
 - [LuminaryWorks 叙事](https://github.com/LuminaryWorks/LuminaryWorks/blob/main/docs/ecosystem-narrative.md)
 - [总体架构](https://github.com/LuminaryWorks/LuminaryWorks/blob/main/docs/architecture-overview.md)
+- [系统总览 §1.1 LuminaryWorks](./system-overview.md#11-luminaryworks-ai-生态)
 
 ## 原则
 

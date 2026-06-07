@@ -13,7 +13,20 @@
 
 **VistaRemote** 是 VibeCode 生态下的企业级远程桌面控制系统：通过 **WebRTC** 实现低延迟屏幕采集、传输与远程键鼠/触控控制；支持 **Web / 桌面 / 移动** 多端作为主控端，**Electron 桌面 Agent** 作为被控端。
 
-### 1.1 核心用户故事
+### 1.1 LuminaryWorks AI 生态
+
+VistaRemote 是 [LuminaryWorks](https://github.com/LuminaryWorks/LuminaryWorks) 五产品中的 **「控」** 支柱 — 远程触达设备与桌面现场。可**单独交付**企业运维场景；与 LuminaryIoTChain 组合时提供控制台一键远程会话。
+
+| 兄弟产品 | 集成场景 |
+|----------|----------|
+| LuminaryIoTChain | 设备 / 边缘网关远程维护 |
+| DataLuminary | 录制与审计报表 |
+| VibeEdu | 远程运维培训课程 |
+| VibeAgent | Worker 端调试 |
+
+详见 [luminaryworks-ecosystem.md](./luminaryworks-ecosystem.md) · 对外摘要见 MetaRepo [readme.md](../readme.md#luminaryworks-ai-生态)。
+
+### 1.2 核心用户故事
 
 | ID | 角色 | 故事 | 优先级 |
 | :--- | :--- | :--- | :--- |
