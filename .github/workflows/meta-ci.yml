@@ -77,7 +77,7 @@ jobs:
           cache-dependency-path: server/pnpm-lock.yaml
           registry-url: https://npm.pkg.github.com
           scope: "@luminaryworks"
-      - run: pnpm install --frozen-lockfile || pnpm install
+      - run: pnpm install --no-frozen-lockfile
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GH_PACKAGES_READ_TOKEN || secrets.GITHUB_TOKEN }}
       - run: pnpm build
