@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [main, dev]
 
+permissions:
+  contents: read
+  packages: read
+
 jobs:
   biome:
     name: Scaffold lint
@@ -54,3 +58,26 @@ jobs:
           node-version: '24.11'
       - name: Check unchecked plan items
         run: pnpm plan:check
+
+  server:
+    name: Server build
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: server
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24.11"
+          cache: pnpm
+          cache-dependency-path: server/pnpm-lock.yaml
+          registry-url: https://npm.pkg.github.com
+          scope: "@luminaryworks"
+      - run: pnpm install --frozen-lockfile || pnpm install
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GH_PACKAGES_READ_TOKEN || secrets.GITHUB_TOKEN }}
+      - run: pnpm build
