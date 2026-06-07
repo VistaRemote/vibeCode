@@ -68,13 +68,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
-        with:
-          version: 9
       - uses: actions/setup-node@v4
         with:
           node-version: "24.11"
-          cache: pnpm
-          cache-dependency-path: server/pnpm-lock.yaml
           registry-url: https://npm.pkg.github.com
           scope: "@luminaryworks"
       - run: pnpm install --no-frozen-lockfile
