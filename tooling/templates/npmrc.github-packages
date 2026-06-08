@@ -1,0 +1,3 @@
+# GitHub Packages for @vistaremote scope (copy to consumer repo root as .npmrc)
+@vistaremote:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}

@@ -1,0 +1,80 @@
+{
+  "$schema": "./manifest.schema.json",
+  "version": 1,
+  "installOrder": [
+    "shared",
+    "server",
+    "web",
+    "desktop",
+    "mobile",
+    "ai",
+    "docs",
+    "deploy"
+  ],
+  "devUpInstallOrder": ["shared", "server", "web", "ai", "desktop", "mobile"],
+  "projects": {
+    "shared": {
+      "path": "shared",
+      "remote": "git@github.com:VistaRemote/shared.git",
+      "remoteHttps": "https://github.com/VistaRemote/shared.git",
+      "required": true,
+      "description": "跨端协议、Zod Schema、错误码、计费与插件 Manifest"
+    },
+    "server": {
+      "path": "server",
+      "remote": "git@github.com:VistaRemote/server.git",
+      "remoteHttps": "https://github.com/VistaRemote/server.git",
+      "required": true,
+      "description": "NestJS 信令、REST API、配对、计费"
+    },
+    "web": {
+      "path": "web",
+      "remote": "git@github.com:VistaRemote/web.git",
+      "remoteHttps": "https://github.com/VistaRemote/web.git",
+      "required": true,
+      "description": "Rsbuild Web 用户端与管理台"
+    },
+    "desktop": {
+      "path": "desktop",
+      "remote": "git@github.com:VistaRemote/desktop.git",
+      "remoteHttps": "https://github.com/VistaRemote/desktop.git",
+      "required": false,
+      "description": "Electron Agent / Viewer"
+    },
+    "mobile": {
+      "path": "mobile",
+      "remote": "git@github.com:VistaRemote/mobile.git",
+      "remoteHttps": "https://github.com/VistaRemote/mobile.git",
+      "required": false,
+      "description": "React Native 移动端主控"
+    },
+    "ai": {
+      "path": "ai",
+      "remote": "git@github.com:VistaRemote/ai.git",
+      "remoteHttps": "https://github.com/VistaRemote/ai.git",
+      "required": false,
+      "description": "BullMQ AI Worker、LLM 客户端"
+    },
+    "docs": {
+      "path": "docs",
+      "remote": "git@github.com:VistaRemote/docs.git",
+      "remoteHttps": "https://github.com/VistaRemote/docs.git",
+      "required": false,
+      "description": "Rspress 文档站"
+    },
+    "deploy": {
+      "path": "deploy",
+      "remote": "git@github.com:VistaRemote/deploy.git",
+      "remoteHttps": "https://github.com/VistaRemote/deploy.git",
+      "required": false,
+      "description": "Docker Compose、mediasoup、coturn"
+    }
+  },
+  "excludedFromInit": {
+    "ai-finetune": {
+      "path": "ai-finetune",
+      "reason": "闭源独立仓，不纳入公开 Meta 克隆列表",
+      "see": "spec/ai-finetune-spec.md"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "vistaremote-meta",
+  "private": true,
+  "description": "VistaRemote Meta-Repo tooling (Biome, shared configs)",
+  "scripts": {
+    "check": "biome check .",
+    "check:fix": "biome check --write .",
+    "format": "biome format --write .",
+    "format:docs": "biome format --write spec CONTRIBUTING.md AGENTS.md readme.md readme.zh-CN.md .github",
+    "prepare": "node -e \"try{require('husky')}catch(e){}\"",
+    "env:local": "node tooling/scripts/apply-env.mjs local",
+    "env:dev": "node tooling/scripts/apply-env.mjs dev",
+    "env:sit": "node tooling/scripts/apply-env.mjs sit",
+    "env:uat": "node tooling/scripts/apply-env.mjs uat",
+    "dev:up": "node tooling/scripts/dev-up.mjs",
+    "dev:mvp": "node tooling/scripts/dev-mvp.mjs",
+    "dev:mvp:desktop": "node tooling/scripts/dev-mvp.mjs --with-desktop",
+    "dev:up:ai": "node tooling/scripts/dev-up.mjs --with-ai",
+    "setup:repo": "node tooling/scripts/setup-single-repo.mjs",
+    "plan:check": "node tooling/scripts/check-implementation-plan.mjs",
+    "setup:subrepo-docs": "node tooling/scripts/sync-subrepo-scaffold.mjs",
+    "init:repos": "node tooling/scripts/init-repos.mjs",
+    "init:repos:required": "node tooling/scripts/init-repos.mjs --required-only"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.4.16",
+    "@commitlint/cli": "^21.0.1",
+    "@commitlint/config-conventional": "^21.0.1",
+    "husky": "^9.1.7"
+  },
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "packageManager": "pnpm@9.15.0"
+}

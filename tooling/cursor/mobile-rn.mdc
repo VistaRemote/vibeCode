@@ -1,0 +1,11 @@
+---
+description: React Native 主控端约定
+globs: "**/*.{ts,tsx}"
+alwaysApply: false
+---
+
+# Mobile (React Native)
+
+- 构建：**Metro**（非 Rsbuild）；UI：**antd-mobile** 或 RN 设计语言组件。
+- 信令/WebRTC 逻辑对齐 `web`；契约来自 `@vistaremote/shared`。
+- 单元测试：Rstest 针对纯 TS 模块（`src/utils`）；E2E 后续 Detox。

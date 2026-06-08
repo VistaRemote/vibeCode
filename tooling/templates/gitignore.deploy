@@ -1,0 +1,19 @@
+# deploy/ 基础设施与 compose 辅助脚本
+node_modules/
+.pnpm-store/
+dist/
+.rsbuild/
+.rstest-temp/
+
+.env
+.env.local
+!.env.example
+*.log
+.DS_Store
+Thumbs.db
+.idea/
+docker-data/
+volumes/
+*.pem
+*.key
+!*.example

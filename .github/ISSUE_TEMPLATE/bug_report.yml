@@ -1,0 +1,53 @@
+name: Bug Report
+description: Report a reproducible bug
+title: "[bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        请勿在此提交**安全漏洞**，请�?[SECURITY.md](../../SECURITY.md)�?
+  - type: dropdown
+    id: repo
+    attributes:
+      label: Repository
+      options:
+        - server
+        - web
+        - desktop
+        - mobile
+        - shared
+        - ai
+        - docs
+        - deploy
+        - meta-repo
+        - unknown
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      placeholder: "1. ...\n2. ..."
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+  - type: input
+    id: version
+    attributes:
+      label: Version / commit
+      placeholder: e.g. main @ abc1234
+  - type: textarea
+    id: env
+    attributes:
+      label: Environment
+      placeholder: OS, Node, browser, etc.

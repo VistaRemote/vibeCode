@@ -1,0 +1,6 @@
+{
+  "shared": { "signaling": 1 },
+  "server": { "peerJoined": 1 },
+  "web": { "remoteSession": 1, "control": 2 },
+  "desktop": { "agentWebrtc": 1, "controlReceive": 2 }
+}

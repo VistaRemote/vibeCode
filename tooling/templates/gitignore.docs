@@ -1,0 +1,12 @@
+# docs/ Rspress 站点
+node_modules/
+doc_build/
+.rspress/
+dist/
+.DS_Store
+*.log
+.env
+.env.local
+!.env.example
+*.tsbuildinfo
+.cache/

@@ -1,0 +1,13 @@
+---
+description: TypeScript / TSX 与 Biome 代码风格
+globs: "**/*.{ts,tsx,js,jsx,mjs,cjs}"
+alwaysApply: false
+---
+
+# TypeScript + Biome
+
+- 单引号、分号、2 空格缩进、行宽 100（与 `biome.json` / Meta `tooling/biome.json` 一致）。
+- 优先 `import type` 分离类型导入。
+- 避免 `any`；必要时加简短注释。
+- 公共 API 与跨端 DTO 只定义在 `@vistaremote/shared`。
+- 异步错误：记录上下文后 rethrow 或返回统一错误码，禁止空 `catch`。

@@ -1,0 +1,12 @@
+---
+description: Electron Desktop Agent 约定
+globs: "**/*.{ts,tsx,scss}"
+alwaysApply: false
+---
+
+# Desktop (Electron)
+
+- **主进程** `electron/`：采集、WebRTC、输入注入、**edge-ai**（端侧推理）；`contextIsolation: true`。
+- **渲染进程** `src/renderer/`：Rsbuild + antd + Sass，与 Web 工具链一致。
+- 端侧 AI：`electron/edge-ai/`（规则/时序/CV）；隐私敏感默认不上云；降云见 `capability-monitor`。
+- 不上报键盘内容；遥测为结构化事件（见 shared `telemetry`）。

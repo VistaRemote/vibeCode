@@ -1,0 +1,54 @@
+# Checkout consumer + VistaRemote/shared as siblings so file:../shared (and web file:../../../shared) resolve in CI.
+name: Setup @vistaremote/shared for CI
+description: VistaRemote multi-repo layout for file: protocol dependencies
+
+inputs:
+  consumer:
+    description: Consumer folder name under vista-ci root (server, web, ai, desktop, mobile)
+    required: true
+  shared-ref:
+    description: Git ref for VistaRemote/shared
+    required: false
+    default: main
+  shared-repository:
+    description: Shared package repository (owner/name)
+    required: false
+    default: VistaRemote/shared
+
+outputs:
+  consumer-path:
+    description: Absolute path to consumer checkout
+    value: ${{ steps.layout.outputs.consumer-path }}
+
+runs:
+  using: composite
+  steps:
+    - name: Prepare vista-ci layout
+      id: layout
+      shell: bash
+      run: |
+        ROOT="${RUNNER_TEMP}/vista-ci"
+        CONSUMER="${ROOT}/${{ inputs.consumer }}"
+        mkdir -p "$ROOT"
+        echo "root=$ROOT" >> "$GITHUB_OUTPUT"
+        echo "consumer-path=$CONSUMER" >> "$GITHUB_OUTPUT"
+
+    - name: Checkout consumer
+      uses: actions/checkout@v4
+      with:
+        path: ${{ runner.temp }}/vista-ci/${{ inputs.consumer }}
+
+    - name: Checkout shared
+      uses: actions/checkout@v4
+      with:
+        repository: ${{ inputs.shared-repository }}
+        ref: ${{ inputs.shared-ref }}
+        path: ${{ runner.temp }}/vista-ci/shared
+
+    - name: Verify shared dependency path
+      shell: bash
+      run: |
+        ROOT="${{ runner.temp }}/vista-ci"
+        test -d "$ROOT/shared" || (echo "shared checkout missing" && exit 1)
+        test -d "$ROOT/${{ inputs.consumer }}" || (echo "consumer checkout missing" && exit 1)
+        echo "CI layout ready: $ROOT/{${{ inputs.consumer }},shared}"

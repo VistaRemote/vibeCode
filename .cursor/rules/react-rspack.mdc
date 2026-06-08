@@ -1,0 +1,12 @@
+---
+description: React / Rsbuild 前端约定（web、desktop 渲染进程）
+globs: "{web,desktop}/**/*.{ts,tsx,scss}"
+alwaysApply: false
+---
+
+# React + Rsbuild
+
+- UI：**Ant Design 5**；样式 **Sass Modules**（`*.module.scss`），禁止 Tailwind 作为主方案。
+- 环境变量浏览器侧使用 `PUBLIC_*`（Rsbuild），不用 `VITE_*`。
+- Web 分 **apps/client**（用户端）与 **apps/admin**（管理台）；共享组件放 `packages/ui`。
+- 远程桌面画布区域可用原生 video/Canvas；外壳布局用 antd。

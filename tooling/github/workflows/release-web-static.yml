@@ -1,0 +1,49 @@
+# Template â†?web/.github/workflows/release.yml
+name: Release web static assets
+
+on:
+  push:
+    tags:
+      - 'web-v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Build client & admin
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup @vistaremote/shared (CI layout)
+        id: shared
+        uses: ./.github/actions/setup-shared
+        with:
+          consumer: web
+          shared-ref: main
+
+      - name: Parse version
+        id: meta
+        run: echo "version=${GITHUB_REF#refs/tags/web-v}" >> "$GITHUB_OUTPUT"
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.11'
+          cache: pnpm
+          cache-dependency-path: ${{ steps.shared.outputs.consumer-path }}/pnpm-lock.yaml
+
+      - name: Install & build
+        working-directory: ${{ steps.shared.outputs.consumer-path }}
+        run: pnpm install --frozen-lockfile && pnpm build
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: web-${{ steps.meta.outputs.version }}
+          path: |
+            ${{ steps.shared.outputs.consumer-path }}/apps/client/dist
+            ${{ steps.shared.outputs.consumer-path }}/apps/admin/dist

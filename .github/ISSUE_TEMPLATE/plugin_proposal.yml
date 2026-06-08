@@ -1,0 +1,58 @@
+name: Plugin proposal
+description: Propose a community or official plugin (see plugin-architecture-spec)
+title: "[plugin]: "
+labels: ["plugin", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Read [spec/plugin-architecture-spec.md](../../spec/plugin-architecture-spec.md) and [prompts/plugin-review.prompt.md](../../prompts/plugin-review.prompt.md).
+        Plugins live in **separate repos** — do not request core business code in main repos.
+
+  - type: input
+    id: plugin_id
+    attributes:
+      label: Plugin ID (reverse domain)
+      placeholder: com.acme.k8s-deploy
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: targets
+    attributes:
+      label: Target platforms
+      options:
+        - label: server
+        - label: web
+        - label: desktop
+        - label: mobile
+
+  - type: textarea
+    id: permissions
+    attributes:
+      label: Requested permissions (minimal list)
+      description: e.g. signaling.read, files.write
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What does the plugin do?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: commercial
+    attributes:
+      label: Commercial model
+      options:
+        - free
+        - paid
+        - enterprise-only
+
+  - type: textarea
+    id: security
+    attributes:
+      label: Security & isolation notes
+      description: Crash isolation, network egress, data handling
