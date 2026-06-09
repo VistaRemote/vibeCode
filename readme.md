@@ -1,4 +1,8 @@
-# VibeCode | VistaRemote 🚀
+<p align="center">
+  <img src="assets/logo.png" alt="VistaRemote" width="128" />
+</p>
+
+<h1 align="center">VibeCode | VistaRemote 🚀</h1>
 
 [English](./README.md) | [简体中文](./README.zh-CN.md)
 
