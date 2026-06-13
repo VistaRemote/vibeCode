@@ -1,17 +1,21 @@
 {
   "organization": "VistaRemote",
+  "legacyOrganization": "vistacast",
   "defaultBranch": "main",
   "cloneProtocol": "ssh",
   "httpsHost": "github.com",
   "sshHost": "github.com",
   "metaRepo": {
     "name": "vibeCode",
-    "description": "VistaRemote Meta-Repo — Spec、tooling、路线图与子仓编排",
+    "targetName": "platform",
+    "description": "VistaRemote Meta-Repo — Spec、tooling、子仓编排（WebRTC 远程桌面）",
     "remote": "git@github.com:VistaRemote/vibeCode.git",
-    "remoteHttps": "https://github.com/VistaRemote/vibeCode.git"
+    "remoteHttps": "https://github.com/VistaRemote/vibeCode.git",
+    "targetRemote": "git@github.com:VistaRemote/platform.git"
   },
   "notes": [
     "Do not use git submodule or git subtree for child repos.",
-    "Commit application code in each child repo; commit spec/tooling changes in Meta-Repo."
+    "Commit application code in each child repo; commit spec/tooling changes in Meta-Repo.",
+    "AI 摄像头产品线为 VistaCast（github.com/VistaCast），与本组织分离。"
   ]
 }

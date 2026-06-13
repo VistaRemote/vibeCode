@@ -1,4 +1,4 @@
-# Template â†?consumer .github/workflows/sync-shared.yml
+# Template ï¿½?consumer .github/workflows/sync-shared.yml
 name: Sync @vistaremote/shared
 
 on:
@@ -57,7 +57,7 @@ jobs:
             if (!j.dependencies?.[pkgName]) continue;
             j.dependencies[pkgName] = '^' + version;
             fs.writeFileSync(p, JSON.stringify(j, null, 2) + '\n');
-            console.log('pinned', f, 'â†?, '^' + version);
+            console.log('pinned', f, 'ï¿½?, '^' + version);
           }
           SCRIPT
         env:

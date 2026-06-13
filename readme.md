@@ -2,19 +2,19 @@
   <img src="assets/logo.png" alt="VistaRemote" width="128" />
 </p>
 
-<h1 align="center">VibeCode | VistaRemote 🚀</h1>
+<h1 align="center">VistaRemote · 视界远程</h1>
 
 [English](./README.md) | [简体中文](./README.zh-CN.md)
 
-> A cross-platform, real-time remote desktop control system.
+> **品牌**：[VistaRemote](https://github.com/VistaRemote) · **组织**：[github.com/VistaRemote](https://github.com/VistaRemote) · **MetaRepo**：[VistaRemote/vibeCode](https://github.com/VistaRemote/vibeCode)
+
+A cross-platform, real-time remote desktop control system — **WebRTC** streaming + self-hostable AI insights, built with a **TypeScript + MySQL** stack for easier hiring, customization, and Docker deployment.
 
 Built with passion in China, designed for the global open-source community.
 
-VistaRemote is a VibeCode core project: **WebRTC** real-time remote desktop (vs. legacy DVR-style monitoring), **self-hostable AI** for recording and insights, and a **TypeScript + MySQL** stack for easier hiring, customization, and Docker deployment.
+> **LuminaryWorks AI 生态**：[github.com/LuminaryWorks](https://github.com/LuminaryWorks) — 本产品在生态中担任 **远程桌面控制与现场触达**。AI 摄像头产品线为 [VistaCast](https://github.com/VistaCast/vistacast)（并存）。详见 [spec/luminaryworks-ecosystem.md](./spec/luminaryworks-ecosystem.md)。
 
-> **LuminaryWorks AI 生态**：[github.com/LuminaryWorks](https://github.com/LuminaryWorks) — 本产品在生态中担任 **远程运维与现场触达**。详见 [spec/luminaryworks-ecosystem.md](./spec/luminaryworks-ecosystem.md)。
-
-**Why VistaRemote:** TypeScript-first, Spec-driven, **easy to customize** �?best for teams that do **not** need billion-scale concurrency. [Positioning](https://github.com/VistaRemote/vista-remote/blob/main/docs/docs/en/architecture/positioning.mdx) · [Desktop performance](https://github.com/VistaRemote/vista-remote/blob/main/docs/docs/en/architecture/desktop-performance.mdx)
+**Why VistaRemote:** TypeScript-first, Spec-driven, **easy to customize** — best for teams that do **not** need billion-scale concurrency.
 
 To ensure build stability across diverse environments (Node.js, React Native, Electron), this project adopts a **Multi-repo** architecture. Cross-platform UI is **React + RN** (not Flutter); native capture/encode uses **Rust** via N-API—see [ADR-0007](./adr/0007-no-flutter-cross-platform-ui.md). This repository serves as the **Meta-Repo**, designed to help developers quickly initialize their environments, orchestrate the subprojects, and manage cross-repository local debugging.
 
